@@ -1,0 +1,21 @@
+{
+  "name": "space_nemotoads",
+  "version": "1.0.0",
+  "description": "code for client-server and API access",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "sf",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "csv-string": "^2.3.0",
+    "csv2": "^0.1.1",
+    "mocha": "^2.3.4",
+    "node-rest-client": "^1.5.1",
+    "restler": "^3.4.0",
+    "through2": "^2.0.0",
+    "xml2js": "^0.4.15"
+  }
+}
