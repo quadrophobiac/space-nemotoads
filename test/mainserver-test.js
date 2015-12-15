@@ -6,20 +6,24 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 var server = require('./../mainserver.js');
+var CentrifugeServer = require('./../centrifuge-server.js');
 var http = require('http');
 
-//var server = new MainServer();
+//var server = new Mserver();
 
-describe('server', function(){
 
+describe('centrifuge server', function(){
     before(function(){
-        server.listen(8000);
-    });
 
-    after(function(){
-        server.close();
-    });
+        console.log('centrifuge: ');
+        console.log("this server is a "+typeof CentrifugeServer);
 
+        CentrifugeServer.commence();
+        CentrifugeServer.listen(8000);
+        console.log(CentrifugeServer.server);
+
+
+    });
     describe('/', function () {
         it('should return 200', function (done) {
 
@@ -31,6 +35,47 @@ describe('server', function(){
 
         it('should say "Hello, world!"', function (done) {
             http.get('http://localhost:8000', function (res) {
+                var data = '';
+
+                res.on('data', function (chunk) {
+                    data += chunk;
+                });
+
+                res.on('end', function () {
+                    assert.equal('Hello, world!\n', data);
+                    done();
+                });
+            });
+        });
+    });
+});
+
+describe('main server', function(){
+
+    before(function(){
+
+        console.log('main server is a ');
+        console.log(typeof server);
+        console.log(Object.getOwnPropertyNames(server));
+        server.listen(8080);
+
+    });
+
+    after(function(){
+        server.close();
+    });
+
+    describe('/', function () {
+        it('should return 200', function (done) {
+
+            http.get('http://localhost:8080', function (res) {
+                assert.equal(200, res.statusCode);
+                done();
+            });
+        });
+
+        it('should say "Hello, world!"', function (done) {
+            http.get('http://localhost:8080', function (res) {
                 var data = '';
 
                 res.on('data', function (chunk) {
