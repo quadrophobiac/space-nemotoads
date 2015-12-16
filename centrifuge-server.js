@@ -14,6 +14,25 @@ function CentrifugeServer(){}
 //        console.log("Client left: " + new Date());
 //    });
 //})
+//CentrifugeServer.server.on("request", function(request, response) {
+    //console.log(JSON.stringify(request,null,4));
+    //console.log(request);
+    //console.log("response code = "+response.statusCode);
+
+    //request.setEncoding("utf8");
+    //request.on("readable", function() {
+    //    console.log(request.read());
+    //    return(request.read());
+    //});
+    //return response;
+//});
+//CentrifugeServer.server.setTimeout(2000, function(socket) {
+//    socket.write("Too Slow!", "utf8");
+//    socket.end();
+//});
+
+
+// tests
 
 CentrifugeServer.commence = function(){
     console.log("starting server");
@@ -23,8 +42,6 @@ CentrifugeServer.commence = function(){
         res.end('Hello, world!\n');
     });
 }
-
-
 
 CentrifugeServer.listen = function(){
     CentrifugeServer.server.listen.apply(CentrifugeServer.server, arguments);

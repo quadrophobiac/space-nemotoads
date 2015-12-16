@@ -20,14 +20,20 @@ describe('centrifuge server', function(){
 
         CentrifugeServer.commence();
         CentrifugeServer.listen(8000);
-        console.log(CentrifugeServer.server);
-
+        //console.log(CentrifugeServer.server);
+        var server = CentrifugeServer.server;
+        server.listen(8000);
 
     });
+    after(function(){
+        CentrifugeServer.close();
+    });
     describe('/', function () {
+        this.timeout();
         it('should return 200', function (done) {
 
             http.get('http://localhost:8000', function (res) {
+                console.log(res);
                 assert.equal(200, res.statusCode);
                 done();
             });
