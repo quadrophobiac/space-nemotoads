@@ -1,16 +1,9 @@
-var serialport = require('serialport');
+var five = require("johnny-five");
+var board = new five.Board();
 
-var connections = ["/dev/cu.usbmodem1411","/dev/cu.usbmodem1421","/dev/tty.usbmodemfa131"];
-var portName = connections[0];
-var sp = new serialport.SerialPort(portName, {
-    baudRate: 9600,
-    dataBits: 8,
-    parity: 'none',
-    stopBits: 1,
-    flowControl: false,
-    parser: serialport.parsers.readline("\r\n")
-});
-
-sp.on('data', function(input) {
-    console.log(input);
+board.on("ready", function() {
+    // Create an Led on pin 13
+    var led = new five.Led(13);
+    // Blink every half second
+    led.blink(500);
 });
