@@ -7,3 +7,11 @@ board.on("ready", function() {
     // Blink every half second
     led.blink(500);
 });
+
+
+
+//board.on('data', function(freq, led){
+//
+//    led.blink(freq);
+//
+//});

@@ -19,7 +19,7 @@ void setup()
 }
 
 void loop()
-{  
+{
   digitalWrite(8, HIGH);
    stepper.run();
 }
