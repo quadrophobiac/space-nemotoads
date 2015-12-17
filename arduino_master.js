@@ -1,41 +1,16 @@
-var serialport = require("serialport");
-var SerialPort = serialport.SerialPort;
+var serialport = require('serialport');
 
-var command = process.argv[2];
-
-var serialPort = new SerialPort("/dev/tty.usbmodemfa131", {
-    baudrate: 9600,
+var connections = ["/dev/cu.usbmodem1411","/dev/cu.usbmodem1421","/dev/tty.usbmodemfa131"];
+var portName = connections[0];
+var sp = new serialport.SerialPort(portName, {
+    baudRate: 9600,
     dataBits: 8,
     parity: 'none',
     stopBits: 1,
     flowControl: false,
-    parser: serialport.parsers.readline("\r")
+    parser: serialport.parsers.readline("\r\n")
 });
 
-serialPort.on("open", function () {
-    console.log('open');
-
-    serialPort.on('data', function(data) {
-        result = data.trim();
-        console.log('data received: ' + result);
-        if (result === 'OK') {
-            console.log('command successful');
-        }
-        else {
-            console.log('command not successful');
-        }
-    });
-
-    setTimeout(function() {
-        console.log("waiting...");
-        command = command + '#'
-        serialPort.write(command, function(err, results) {
-            console.log('err ' + err);
-            console.log('results ' + results);
-        });
-    }, 3000);
-
-    serialPort.on('error', function (err) {
-        console.error("error", err);
-    });
+sp.on('data', function(input) {
+    console.log(input);
 });
