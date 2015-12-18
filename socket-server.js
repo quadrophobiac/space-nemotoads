@@ -1,39 +1,11 @@
+// via https://codeforgeek.com/2015/07/unit-testing-nodejs-application-using-mocha/
+
 var express = require('express');
 var router = express.Router();
 var app = express();
 var httpServer = require("http").createServer(app);
 var five = require("johnny-five");
 var io=require('socket.io')(httpServer);
-
-var port = 3000;
-
-//app.use(express.static(__dirname + '/public'));
-var led;
-
-app.get('/', function(req, res) {
-    led.on();
-    res.send({
-        name:"Alex",
-        city:"London",
-        age:25
-    });
-});
-
-//app.post('/add',function(req,res){
-//    console.log(Object.getOwnPropertyNames(req));
-//    console.log(req.params);
-//    console.log(req.query);
-//    //res.json({"error" : false, "message" : "success", "data" : req.body.num1 + req.body.num2});
-//    res.end();
-//});
-app.use('/',router);
-router.post('/add',function(req,res){
-    res.json({"error" : false, "message" : "success", "data" : req.body.num1 + req.body.num2});
-});
-
-httpServer.listen(port);
-console.log('Server available at http://localhost:' + port);
-
 
 //Arduino board connection
 
@@ -44,20 +16,26 @@ board.on("ready", function() {
     led.off();
 });
 
-//Socket connection handler
-io.on('connection', function (socket) {
-    console.log(socket.id);
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+var router = express.Router();
 
-    socket.on('led:on', function (data) {
-        led.on();
-        console.log('LED ON RECEIVED');
-    });
-
-    socket.on('led:off', function (data) {
-        led.off();
-        console.log('LED OFF RECEIVED');
-
-    });
+router.get('/',function(req,res){
+    res.json({"error" : false, "message" : "Hello !"});
+    led.off();
 });
 
-console.log('Waiting for connection');
+router.post('/add',function(req,res){
+
+    res.json({"error" : false, "message" : "success", "data" : req.body.num1 + req.body.num2});
+    led.on();
+});
+
+app.use('/',router);
+
+app.listen(3000,function(){
+    console.log("I am listening at PORT 3000");
+})

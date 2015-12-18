@@ -22,7 +22,7 @@ describe('socket server', function(){
         server
             .post('/add')
             .send({num1 : 10, num2 : 20})
-            .expect("Content-type",/json/)
+            //.expect("Content-type",/json/)
             .expect(200)
             .end(function(err,res){
                 res.status.should.equal(200);
