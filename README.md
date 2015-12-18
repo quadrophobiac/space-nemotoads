@@ -7,10 +7,43 @@ the repo for the pi and api project
 Arduino Uno board
 node installed #TODO = instructions for andy
 
-* Open the Arduino IDE, select: File > Examples > Firmata > StandardFirmata
-`node arduino_master.js`
+Node - Mac Installation Instructions
+```
+xcode-select --install
+# agree as necessary
+sudo gcc --version
+# agree as necessary
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# installs homebrew - makes package mgmt easier
+brew doctor
+echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
+source ~/.bash_profile
+echo $PATH
+# this puts `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin` at the beginning of your path - needed
+brew install node
+node -v
+npm version
+# both of the above should return some version numbers / details if successful
+brew install git
+which git # check that you have git installed
+git clone https://github.com/quadrophobiac/space-nemotoads
+ls (you should see new directory)
+cd (into the new directory)
+git checkout node-2-arduino
+# you should see Branch node-2-arduino set up to track remote branch node-2-arduino from origin. Switched to a new branch 'node-2-arduino'
 
-Stepper Motor Code
+Arduino Johnny Five Set Up
+Copy the AdvancedFirmata libray from space_nemotoads/lib/AdvancedFirmata into your Mac's Arduino Folder (usually under Documents)
+* Open the Arduino IDE, select: File > Examples > Firmata > AdvancedFirmata (should be at the bottom near the 'custom libraries heading'
+Upload the sketch to arduino
+
+From within spacenemotoads run
+`node arduino_master.js`
+# this will open an interactive terminal interface to the arduino controlled by Johnny-Five
+# from there you can play around with the methods made available in the examples here
+```
+
+Stepper Motor PseduoCode
 
 establish the 3 steppers and their pins,
 set them going in one direction (i prefer clockwise)
