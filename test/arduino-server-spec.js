@@ -9,21 +9,22 @@ var http = require('http');
 var request = require('request');
 
 describe('server response', function () {
-    before(function () {
+    before(function (done) {
         server.listen(8000);
+        done();
     });
 
     after(function () {
         server.close();
     });
 
-    //it('should return 400', function (done) {
-    //    request.get('http://localhost:8000', function (err, res, body){
-    //        expect(res.statusCode).to.equal(400);
-    //        expect(res.body).to.equal('wrong header');
-    //        done();
-    //    });
-    //});
+    it('should return 400', function (done) {
+        request.get('http://localhost:8000', function (err, res, body){
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.equal('wrong header');
+            done();
+        });
+    });
 
     it('should return 200', function (done) {
         var options = {
@@ -39,26 +40,26 @@ describe('server response', function () {
         });
     });
     //
-    //it('should emit request body', function (done) {
-    //    var options = {
-    //        url: 'http://localhost:8000',
-    //        headers: {
-    //            'Content-Type': 'text/plain'
-    //        },
-    //        body: 'successfully emitted request'
-    //    };
-    //    var eventFired = false;
-    //
-    //    request.get(options, function (err, res, body) {});
-    //
-    //    server.on('success', function (data) {
-    //        eventFired = true;
-    //        expect(data).to.equal('successfully emitted request');
-    //    });
-    //
-    //    setTimeout( function () {
-    //        expect(eventFired).to.equal(true);
-    //        done();
-    //    }, 10);
-    //});
+    it('should emit request body', function (done) {
+        var options = {
+            url: 'http://localhost:8000',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: 'successfully emitted request'
+        };
+        var eventFired = false;
+
+        request.get(options, function (err, res, body) {});
+
+        server.on('success', function (data) {
+            eventFired = true;
+            expect(data).to.equal('successfully emitted request');
+        });
+
+        setTimeout( function () {
+            expect(eventFired).to.equal(true);
+            done();
+        }, 10);
+    });
 });
