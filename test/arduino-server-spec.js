@@ -1,21 +1,47 @@
 /**
  * Created by stephenfortune on 17/12/2015.
  */
+var chai = require('chai');
+var chaiHttp = require('chai-http');
+chai.use(chaiHttp);
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
-var server = require('./../arduino_server.js');
+var simpleServer = require('./../arduino_server.js');
+var socketServer = require('./../socket-server.js');
 var http = require('http');
 var request = require('request');
+var supertest = require("supertest");
+var server = supertest.agent("http://localhost:3000");
+
+describe('socket server', function(){
+
+    it("should add two number",function(done){
+
+        //calling ADD api
+        server
+            .post('/add')
+            .send({num1 : 10, num2 : 20})
+            .expect("Content-type",/json/)
+            .expect(200)
+            .end(function(err,res){
+                res.status.should.equal(200);
+                res.body.error.should.equal(false);
+                res.body.data.should.equal(30);
+                done();
+            });
+    });
+
+})
 
 describe('server response', function () {
     before(function (done) {
-        server.listen(8000);
+        simpleServer.listen(8000);
         done();
     });
 
     after(function () {
-        server.close();
+        simpleServer.close();
     });
 
     it('should return 400', function (done) {
@@ -52,7 +78,7 @@ describe('server response', function () {
 
         request.get(options, function (err, res, body) {});
 
-        server.on('success', function (data) {
+        simpleServer .on('success', function (data) {
             eventFired = true;
             expect(data).to.equal('successfully emitted request');
         });
