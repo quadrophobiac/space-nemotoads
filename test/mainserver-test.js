@@ -5,8 +5,8 @@
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
-var server = require('./../mainserver.js');
-var CentrifugeServer = require('./../centrifuge-server.js');
+var server = require('./../exports-server.js');
+var CentrifugeServer = require('./../named-object-exports-server.js');
 var http = require('http');
 
 //var server = new Mserver();
@@ -18,8 +18,8 @@ describe('centrifuge server', function(){
         console.log('centrifuge: ');
         console.log("this server is a "+typeof CentrifugeServer);
 
-        CentrifugeServer.commence();
-        CentrifugeServer.listen(8000);
+        //CentrifugeServer.commence();
+        //CentrifugeServer.listen(8000);
         //console.log(CentrifugeServer.server);
         var server = CentrifugeServer.server;
         server.listen(8000);
@@ -59,7 +59,7 @@ describe('centrifuge server', function(){
 describe('main server', function(){
 
     before(function(){
-
+        server.close();
         console.log('main server is a ');
         console.log(typeof server);
         console.log(Object.getOwnPropertyNames(server));
