@@ -6,45 +6,59 @@ var expect = require('chai').expect;
 var should = require('chai').should();
 var server = require('./../arduino_server.js');
 var http = require('http');
+var request = require('request');
 
-describe('simple server', function(){
-
-    before(function(){
-
-        console.log('main server is a ');
-        console.log(typeof server);
-        console.log(Object.getOwnPropertyNames(server));
-        server.listen(8080);
-
+describe('server response', function () {
+    before(function () {
+        server.listen(8000);
     });
 
-    after(function(){
+    after(function () {
         server.close();
     });
 
-    describe('/', function () {
-        it('should return 200', function (done) {
+    //it('should return 400', function (done) {
+    //    request.get('http://localhost:8000', function (err, res, body){
+    //        expect(res.statusCode).to.equal(400);
+    //        expect(res.body).to.equal('wrong header');
+    //        done();
+    //    });
+    //});
 
-            http.get('http://localhost:8080', function (res) {
-                assert.equal(200, res.statusCode);
-                done();
-            });
-        });
-
-        it('should say "Hello, world!"', function (done) {
-            http.get('http://localhost:8080', function (res) {
-                var data = '';
-
-                res.on('data', function (chunk) {
-                    data += chunk;
-                });
-
-                res.on('end', function () {
-                    assert.equal('Hello, world!\n', data);
-                    done();
-                });
-            });
+    it('should return 200', function (done) {
+        var options = {
+            url: 'http://localhost:8000',
+            headers: {
+                'Content-Type': 'text/plain'
+            }
+        };
+        request.get(options, function (err, res, body) {
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.equal('correct header');
+            done();
         });
     });
-
+    //
+    //it('should emit request body', function (done) {
+    //    var options = {
+    //        url: 'http://localhost:8000',
+    //        headers: {
+    //            'Content-Type': 'text/plain'
+    //        },
+    //        body: 'successfully emitted request'
+    //    };
+    //    var eventFired = false;
+    //
+    //    request.get(options, function (err, res, body) {});
+    //
+    //    server.on('success', function (data) {
+    //        eventFired = true;
+    //        expect(data).to.equal('successfully emitted request');
+    //    });
+    //
+    //    setTimeout( function () {
+    //        expect(eventFired).to.equal(true);
+    //        done();
+    //    }, 10);
+    //});
 });
