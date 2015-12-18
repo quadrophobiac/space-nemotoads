@@ -27,10 +27,14 @@ npm version
 brew install git
 which git # check that you have git installed
 git clone https://github.com/quadrophobiac/space-nemotoads
-ls (you should see new directory)
+ls (you should see new directory space-nemotoads)
 cd (into the new directory)
 git checkout node-2-arduino
+git branch
 # you should see Branch node-2-arduino set up to track remote branch node-2-arduino from origin. Switched to a new branch 'node-2-arduino'
+npm install
+# ^ this installs all the software required (and a bit more besides) to use node to control the arduino
+plug in your arduino
 
 Arduino Johnny Five Set Up
 Copy the AdvancedFirmata libray from space_nemotoads/lib/AdvancedFirmata into your Mac's Arduino Folder (usually under Documents)
