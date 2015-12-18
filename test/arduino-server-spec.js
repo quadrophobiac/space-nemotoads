@@ -8,7 +8,6 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 var simpleServer = require('./../arduino_server.js');
-var socketServer = require('./../middleware-server.js');
 var http = require('http');
 var request = require('request');
 var supertest = require("supertest");
