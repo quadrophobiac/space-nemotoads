@@ -2,13 +2,15 @@
 
 var express = require('express');
 var router = express.Router();
-var app = express();
-var httpServer = require("http").createServer(app);
 var five = require("johnny-five");
-var io=require('socket.io')(httpServer);
+var bodyParser = require("body-parser");
+var app = express();
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
 
 //Arduino board connection
-
+var led;
 var board = new five.Board();
 board.on("ready", function() {
     console.log('Arduino connected');
@@ -16,12 +18,7 @@ board.on("ready", function() {
     led.off();
 });
 
-var express = require("express");
-var bodyParser = require("body-parser");
-var app = express();
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
-var router = express.Router();
+
 
 router.get('/',function(req,res){
     res.json({"error" : false, "message" : "Hello !"});
