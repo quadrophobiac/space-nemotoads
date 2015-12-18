@@ -6,14 +6,69 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 var server = require('./../exports-server.js');
-var CentrifugeServer = require('./../named-object-exports-server.js');
+var moduleServer = require('./../module-server.js');
 var http = require('http');
+var request = require('request');
 
+describe('server response', function () {
+    before(function () {
+        moduleServer.listen(8000);
+    });
+
+    after(function () {
+        moduleServer.close();
+    });
+
+    it('should return 400', function (done) {
+        request.get('http://localhost:8000', function (err, res, body){
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.equal('wrong header');
+            done();
+        });
+    });
+
+    it('should return 200', function (done) {
+        var options = {
+            url: 'http://localhost:8000',
+            headers: {
+                'Content-Type': 'text/plain'
+            }
+        };
+        request.get(options, function (err, res, body) {
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.equal('correct header');
+            done();
+        });
+    });
+
+    it('should emit request body', function (done) {
+        var options = {
+            url: 'http://localhost:8000',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: 'successfully emitted request'
+        };
+        var eventFired = false;
+
+        request.get(options, function (err, res, body) {});
+
+        moduleServer.on('success', function (data) {
+            eventFired = true;
+            expect(data).to.equal('successfully emitted request');
+        });
+
+        setTimeout( function () {
+            expect(eventFired).to.equal(true);
+            done();
+        }, 10);
+    });
+});
 
 describe('main server', function(){
 
     before(function(){
-        
+
         console.log('main server is a ');
         console.log(typeof server);
         console.log(Object.getOwnPropertyNames(server));
