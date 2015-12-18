@@ -8,6 +8,21 @@ board.on("ready", function() {
     // Blink every half second
     //led.blink(500);
     led.off();
+
+    var stepper = new five.Stepper({
+        type: five.Stepper.TYPE.DRIVER,
+        stepsPerRev: 200,
+        pins: {
+            step: 11,
+            dir: 12
+        }
+    });
+
+    // make the LED accessible from REPL command line
+    this.repl.inject({
+        led: led,
+        stepper: stepper
+    });
 });
 
 
