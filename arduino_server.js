@@ -24,7 +24,6 @@ var server = module.exports = http.createServer(function (req, res) {
         req.on('end', function () {
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.end('correct header');
-            led.on();
             server.emit('success', body); // THIS is the thing
         });
 
