@@ -25,6 +25,8 @@ board.on("ready", function() {
         }
     });
 
+    console.log(Object.getOwnPropertyNames(motor));
+
     // make the LED accessible from REPL command line
     this.repl.inject({
         led: led,
