@@ -20,9 +20,9 @@ console.log(top3);
 
 //Arduino board connection
 var led;
-var stepper1;
-var stepper2;
 var motor1;
+var motor2;
+var motor3;
 
 var board = new five.Board();
 board.on("ready", function() {
@@ -32,47 +32,59 @@ board.on("ready", function() {
     console.log('Arduino connected');
     led = new five.Led(13);
     led.off();
-    stepper1 = new five.Stepper({
-        type: five.Stepper.TYPE.DRIVER,
-        stepsPerRev: 200,
-        pins: {
-            step: 11,
-            dir: 12
-        }
-    });
-    stepper2 = new five.Stepper({
-        type: five.Stepper.TYPE.DRIVER,
-        stepsPerRev: 200,
-        pins: {
-            step: 9,
-            dir: 10
-        }
-    });
+
     motor1 = new five.Motor({
+        id: "motor1",
         pins: {
             pwm: 3,
             dir: 4
         }
     });
+    motor2 = new five.Motor({
+        id: "motor2",
+        pins: {
+            pwm: 5,
+            dir: 7
+        }
+    });
+    motor3 = new five.Motor({
+        id: "motor3",
+        pins: {
+            pwm: 9,
+            dir: 8
+        }
+    });
 
-    console.log(Object.getOwnPropertyNames(motor1));
-    console.log(Object.getOwnPropertyNames(stepper1));
+    console.log(Object.getOwnPropertyNames(motor3));
 
-    //stepper1.rpm(180).ccw().step(2000, function() {
-    //    console.log("done");
-    //});
-    //motor1.start(255);
+    var motorReporter = function(err, stamp){
+        console.log("logging callback func");
+        if(!this.isOn){
+            console.log("someone has halted motor");
+        } else {
+            console.log(this.id+", running = "+this.isOn+", current speed = "+this.currentSpeed);
+        }
+    }
+
     motor1.forward(128);
+    motor2.forward(230);
+    motor3.forward(75);
 
-    motor1.on("forward", function(err, timestamp) {
-        // demonstrate braking after 5 seconds
-        //console.log(Object.getOwnPropertyNames(motor1));
-        console.log("motor evident: "+motor1.isOn+" and has RPM "+motor1.currentSpeed);
-        console.log("motor running "+timestamp);
-    });
-    motor1.on("stop", function(){
-        console.log("someone has halted motor");
-    });
+    //motor1.on("forward", function(err, timestamp) {
+    //    // demonstrate braking after 5 seconds
+    //    console.log(Object.getOwnPropertyNames(motor1));
+    //    console.log("motor evident: "+motor1.isOn+" and has RPM "+motor1.currentSpeed);
+    //    console.log("motor running "+timestamp);
+    //});
+
+    motor1.on("stop", motorReporter);
+    motor2.on("stop", motorReporter);
+    motor3.on("stop", motorReporter);
+    motor1.on("forward", motorReporter);
+    motor2.on("forward", motorReporter);
+    motor3.on("forward", motorReporter);
+
+
 
 });
 
@@ -92,6 +104,7 @@ board.on("message", function(event) {
 
 router.get('/',function(req,res){
     res.json({"error" : false, "message" : "Hello !"});
+    motor1.forward(128);
     led.off();
 });
 
@@ -100,9 +113,7 @@ router.post('/add',function(req,res){
     res.json({"error" : false, "message" : "success", "data" : req.body.num1 + req.body.num2});
     led.on();
     motor1.stop();
-    stepper1.step({ steps: 2000, direction: 1, accel: 1600, decel: 1600 }, function() {
-        console.log("Done stepping!");
-    });
+
 });
 
 
