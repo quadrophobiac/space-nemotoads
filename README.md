@@ -61,6 +61,8 @@ putting `;0;` at the end of every command ensures that lots of debugging data is
 
 to exit the REPL typp `CTRL+C` or `CMD+C` twice
 
+________________________________
+
 Stepper Motor PseduoCode
 
 establish the 3 steppers and their pins,
