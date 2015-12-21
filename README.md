@@ -50,11 +50,16 @@ From within spacenemotoads run
 ### Using the Johnny-Five REPL
 
 REPL is the name for the interactive session that `arduino_master.js` creates
+
 if you run `motor.start();0;` you should see the motor begin to spin and the terminal will print some details
+
 likewise if you run `motor.stop();0;` the motor should halt movement
+
 you can also use the full set of the commands for controlling the motor which are detailed (here)[http://johnny-five.io/api/motor/#api]
+
 putting `;0;` at the end of every command ensures that lots of debugging data isn't printed, so use this feature at your discretion
-to exit the REPL typp `CTRL+C` or `CMD+C` twice  
+
+to exit the REPL typp `CTRL+C` or `CMD+C` twice
 
 Stepper Motor PseduoCode
 
