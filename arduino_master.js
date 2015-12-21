@@ -19,13 +19,30 @@ board.on("ready", function() {
     });
 
     var motor = new five.Motor({
+        id: "motor1",
         pins: {
             pwm: 3,
             dir: 4
         }
     });
 
+
+
+
+    var motorReporter = function(err, stamp){
+        console.log("logging callback func");
+
+        if(!this.isOn){
+            console.log("someone has halted motor: "+this.id+" and speed = "+this.currentSpeed);
+        } else {
+            console.log(this.id+", running = "+this.isOn+", current speed = "+this.currentSpeed);
+        }
+    }
     console.log(Object.getOwnPropertyNames(motor));
+
+    motor.on("forward", motorReporter);
+    motor.on("stop", motorReporter);
+    motor.on("start", motorReporter);
 
     // make the LED accessible from REPL command line
     this.repl.inject({
@@ -33,6 +50,10 @@ board.on("ready", function() {
         stepper: stepper,
         motor: motor
     });
+
+
+
+
 });
 
 
