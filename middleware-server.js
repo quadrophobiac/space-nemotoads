@@ -59,16 +59,21 @@ board.on("ready", function() {
 
     var motorReporter = function(err, stamp){
         console.log("logging callback func");
+        console.trace();
         if(!this.isOn){
-            console.log("someone has halted motor");
+            console.log("someone has halted motor: "+this.id+" and speed = "+this.currentSpeed);
         } else {
             console.log(this.id+", running = "+this.isOn+", current speed = "+this.currentSpeed);
         }
     }
 
-    motor1.forward(128);
-    motor2.forward(230);
-    motor3.forward(75);
+    //motor1.forward(128);
+    //motor2.forward(230);
+    //motor3.forward(75);
+
+    //motor1.forward(128);
+    //motor2.forward(230);
+    //motor3.forward(75);
 
     //motor1.on("forward", function(err, timestamp) {
     //    // demonstrate braking after 5 seconds
@@ -105,7 +110,7 @@ board.on("message", function(event) {
 router.get('/',function(req,res){
     res.json({"error" : false, "message" : "Hello !"});
     motor1.forward(128);
-    led.off();
+    led.on();
 });
 
 router.post('/add',function(req,res){
