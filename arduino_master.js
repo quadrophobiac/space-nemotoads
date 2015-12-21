@@ -18,10 +18,18 @@ board.on("ready", function() {
         }
     });
 
+    var motor = new five.Motor({
+        pins: {
+            pwm: 3,
+            dir: 4
+        }
+    });
+
     // make the LED accessible from REPL command line
     this.repl.inject({
         led: led,
-        stepper: stepper
+        stepper: stepper,
+        motor: motor
     });
 });
 
