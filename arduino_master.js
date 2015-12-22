@@ -9,15 +9,6 @@ board.on("ready", function() {
     //led.blink(500);
     led.off();
 
-    var stepper = new five.Stepper({
-        type: five.Stepper.TYPE.DRIVER,
-        stepsPerRev: 200,
-        pins: {
-            step: 11,
-            dir: 12
-        }
-    });
-
     var motor = new five.Motor({
         id: "motor1",
         pins: {
@@ -25,8 +16,6 @@ board.on("ready", function() {
             dir: 4
         }
     });
-
-
 
 
     var motorReporter = function(err, stamp){
@@ -47,12 +36,8 @@ board.on("ready", function() {
     // make the LED accessible from REPL command line
     this.repl.inject({
         led: led,
-        stepper: stepper,
         motor: motor
     });
-
-
-
 
 });
 

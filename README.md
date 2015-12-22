@@ -37,9 +37,10 @@ npm install
 plug in your arduino
 
 Arduino Johnny Five Set Up
-Copy the AdvancedFirmata libray from space_nemotoads/lib/AdvancedFirmata into your Mac's Arduino Folder (usually under Documents)
-* Open the Arduino IDE, select: File > Examples > Firmata > AdvancedFirmata (should be at the bottom near the 'custom libraries heading'
-Upload the sketch to arduino
+Upload File > Examples > Firmata > Standard Firmata to the Arduino Board
+~~Copy the AdvancedFirmata libray from space_nemotoads/lib/AdvancedFirmata into your Mac's Arduino Folder (usually under Documents)~~
+~~* Open the Arduino IDE, select: File > Examples > Firmata > AdvancedFirmata (should be at the bottom near the 'custom libraries heading'~~
+~~Upload the sketch to arduino~~
 
 From within spacenemotoads run
 `node arduino_master.js`
