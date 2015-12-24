@@ -1,3 +1,4 @@
+.idea/*
 node_modules/
 data_tracking.log
 project_log.txt
