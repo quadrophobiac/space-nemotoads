@@ -2,6 +2,8 @@ the repo for the pi and api project
 
 ### Using Johnny-Five for node to arduino communication
 
+TODO - whatever I did to get npm running on andys pi I need to recuperate as the way I did it on mine fucks everything up
+
 *requires*
 
 Arduino Uno board
