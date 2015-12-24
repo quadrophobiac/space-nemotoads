@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fd05a5bc-897a-4432-ac35-904b5275943d" name="Default" comment="noting important lacking documentation">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/arduino_server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/caltech-poll.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixtures/allExoplanets.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixtures/allExoplanets.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixtures/allKOIs.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixtures/allKOIs.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixtures/earthSized.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixtures/earthSized.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/middleware-server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/caltech-spec.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+    </list>
+    <ignored path="space_nemotoads.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="space_nemotoads" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="data_tracking.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_tracking.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1163" column="38" selection-start-line="1163" selection-start-column="38" selection-end-line="1163" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5251641">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3333333">
+              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="node-2-arduino" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/caltech.js" />
+        <option value="$PROJECT_DIR$/spec/caltech-spec.js" />
+        <option value="$PROJECT_DIR$/test/fixtures/project_log.txt" />
+        <option value="$PROJECT_DIR$/out.txt" />
+        <option value="$PROJECT_DIR$/fixtures/earthSized.json" />
+        <option value="$PROJECT_DIR$/node_modules/json-2-csv/lib/json-2-csv.js" />
+        <option value="$PROJECT_DIR$/tmp/earthSized.json" />
+        <option value="$PROJECT_DIR$/tmp/allExoplanets.json" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/project_log.txt" />
+        <option value="$PROJECT_DIR$/lib/arduino_libraries/PiTalk/src/PiTalk.h" />
+        <option value="$PROJECT_DIR$/lib/arduino_libraries/PiTalk/slave.ino" />
+        <option value="$PROJECT_DIR$/lib/arduino_libraries/arduino_slave.ino" />
+        <option value="$PROJECT_DIR$/lib/arduino_sketches/AccelStepper.ino" />
+        <option value="$PROJECT_DIR$/arduino_stepper.js" />
+        <option value="$PROJECT_DIR$/test/caltech-spec.js" />
+        <option value="$PROJECT_DIR$/mainserver.js" />
+        <option value="$PROJECT_DIR$/centrifuge-server.js" />
+        <option value="$PROJECT_DIR$/named-object-exports-server.js" />
+        <option value="$PROJECT_DIR$/test/mainserver-test.js" />
+        <option value="$PROJECT_DIR$/module-server.js" />
+        <option value="$PROJECT_DIR$/caltech-poll.js" />
+        <option value="$PROJECT_DIR$/socket-server.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/test/arduino-server-spec.js" />
+        <option value="$PROJECT_DIR$/arduino_server.js" />
+        <option value="$PROJECT_DIR$/middleware-server.js" />
+        <option value="$PROJECT_DIR$/arduino_master.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/data_tracking.log" />
+        <option value="$PROJECT_DIR$/package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1252" />
+    <option name="height" value="578" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space_nemotoads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space_nemotoads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space_nemotoads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../comma-chameleon" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/arduino_libraries/PiTalk" />
+      <recent name="$PROJECT_DIR$/lib/arduino_sketches" />
+      <recent name="$PROJECT_DIR$/lib/arduino_libraries/examples" />
+      <recent name="$PROJECT_DIR$/lib/arduino_libraries" />
+      <recent name="$PROJECT_DIR$/" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JsTestDriver-test-runner" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd05a5bc-897a-4432-ac35-904b5275943d" name="Default" comment="" />
+      <created>1449530833380</created>
+      <option name="number" value="Default" />
+      <updated>1449530833380</updated>
+    </task>
+    <task id="LOCAL-00014" summary="barebones node to arduino serial&#10;all committed files comprise 'hello world' for an arduino node communication sourced via http://codebrane.com/blog/2014/04/27/designing-a-simple-serial-api-for-the-arduino-and-node-dot-js/">
+      <created>1450366294997</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1450366294999</updated>
+    </task>
+    <task id="LOCAL-00015" summary="follow dir convention for arduino libs&#10;move slave.ino">
+      <created>1450366373672</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1450366373672</updated>
+    </task>
+    <task id="LOCAL-00016" summary="non library dependant arduino node comms&#10;arduino_master.js and arduino_slave.ino simply serial to console.log() comms derived from http://adilmoujahid.com/posts/2015/07/practical-introduction-iot-arduino-nodejs-plotly/">
+      <created>1450366575911</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1450366575911</updated>
+    </task>
+    <task id="LOCAL-00017" summary="using johnny-five&#10;instructions for `hello world` LED blink in README">
+      <created>1450366916968</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1450366916968</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor previous arduino_slave to correct dir">
+      <created>1450367100222</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1450367100222</updated>
+    </task>
+    <task id="LOCAL-00019" summary="include AG stepper motor sketch&#10;commiting for comparisons sake with johnny-five API">
+      <created>1450367159812</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1450367159812</updated>
+    </task>
+    <task id="LOCAL-00020" summary="establishing base components for interactive node server to arduino">
+      <created>1450368687981</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1450368687981</updated>
+    </task>
+    <task id="LOCAL-00021" summary="cleaning npm modules superfluous to this branch">
+      <created>1450368759800</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1450368759800</updated>
+    </task>
+    <task id="LOCAL-00022" summary="this readme requires steps for set up">
+      <created>1450368777358</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1450368777358</updated>
+    </task>
+    <task id="LOCAL-00023" summary="bare bones server inclusion">
+      <created>1450369098788</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1450369098788</updated>
+    </task>
+    <task id="LOCAL-00024" summary="new npm modules">
+      <created>1450370872337</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1450370872337</updated>
+    </task>
+    <task id="LOCAL-00025" summary="everything is broken burning down start again">
+      <created>1450435673467</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1450435673467</updated>
+    </task>
+    <task id="LOCAL-00026" summary="exports server fixed">
+      <created>1450435795218</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1450435795218</updated>
+    </task>
+    <task id="LOCAL-00027" summary="writing and adding descriptive simple servers+tests">
+      <created>1450437330458</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1450437330458</updated>
+    </task>
+    <task id="LOCAL-00028" summary="simple vanilla server">
+      <created>1450437358120</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1450437358120</updated>
+    </task>
+    <task id="LOCAL-00029" summary="adding skips to these tests in this branch">
+      <created>1450437391894</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1450437391894</updated>
+    </task>
+    <task id="LOCAL-00030" summary="amending imported modules">
+      <created>1450437424786</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1450437424786</updated>
+    </task>
+    <task id="LOCAL-00031" summary="new libs for specs">
+      <created>1450437434484</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1450437434484</updated>
+    </task>
+    <task id="LOCAL-00032" summary="incorporating johnny five to spec fail coz async">
+      <created>1450438188759</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1450438188759</updated>
+    </task>
+    <task id="LOCAL-00033" summary="tests pass, johnny-5 elusive">
+      <created>1450440173575</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1450440173575</updated>
+    </task>
+    <task id="LOCAL-00034" summary="test failing on 500 for route">
+      <created>1450442743615</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1450442743615</updated>
+    </task>
+    <task id="LOCAL-00035" summary="now using alternative express server set up&#10;POST turns LED on, GET turns it off">
+      <created>1450443236988</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1450443236989</updated>
+    </task>
+    <task id="LOCAL-00036" summary="lots of new modules&#10;#TODO get rid of this cruft once functional">
+      <created>1450443271756</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1450443271756</updated>
+    </task>
+    <task id="LOCAL-00037" summary="server + johnny-5 amendments&#10;the tests will pass but they do not initialise the LEDs - the LEDs can only be tested by running middle-ware server and executing `curl -d &quot;param1=value1&amp;param2=value2&quot; http://localhost:3000/add` to simulate POST and navigating to `http://localhost:3000` to simulate GET">
+      <created>1450444267238</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1450444267238</updated>
+    </task>
+    <task id="LOCAL-00038" summary="middleware-server + spec update&#10;the tests will pass but they do not initialise the LEDs - the LEDs can only be tested by running middle-ware server and executing `curl -d &quot;param1=value1&amp;param2=value2&quot; http://localhost:3000/add` to simulate POST and navigating to `http://localhost:3000` to simulate GET">
+      <created>1450444299492</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1450444299492</updated>
+    </task>
+    <task id="LOCAL-00039" summary="cleaning cruft&#10;johnny-five doesn't work within this #TODO = investigate why">
+      <created>1450444325310</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1450444325310</updated>
+    </task>
+    <task id="LOCAL-00040" summary="cleaning cruft&#10;bye bye surplus packages">
+      <created>1450445409603</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1450445409604</updated>
+    </task>
+    <task id="LOCAL-00041" summary="needed for stepper motor in johnny-five">
+      <created>1450446834663</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1450446834663</updated>
+    </task>
+    <task id="LOCAL-00042" summary="correcting dir structure error for arduino libs">
+      <created>1450447055365</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1450447055365</updated>
+    </task>
+    <task id="LOCAL-00043" summary="injecting stepper and led into johnny-5 REPL for play">
+      <created>1450447075852</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1450447075852</updated>
+    </task>
+    <task id="LOCAL-00044" summary="reincluding serialport&#10;forces node to install node-gyp which is useful">
+      <created>1450447112268</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1450447112269</updated>
+    </task>
+    <task id="LOCAL-00045" summary="updating read me with instructions for use">
+      <created>1450447140989</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1450447140989</updated>
+    </task>
+    <task id="LOCAL-00046" summary="change ignore">
+      <created>1450448532780</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1450448532780</updated>
+    </task>
+    <task id="LOCAL-00047" summary="more  for pi">
+      <created>1450448562359</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1450448562359</updated>
+    </task>
+    <task id="LOCAL-00048" summary="rounding out instructions">
+      <created>1450450928335</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1450450928335</updated>
+    </task>
+    <task id="LOCAL-00049" summary="including get spec&#10;NB - the middleware-server.js has to be initialised before the tests pass">
+      <created>1450690441650</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1450690441650</updated>
+    </task>
+    <task id="LOCAL-00050" summary="pull data from filesystem on server start">
+      <created>1450691448643</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1450691448645</updated>
+    </task>
+    <task id="LOCAL-00051" summary="adding motor in lieu of stepper&#10;stepper seems like a v experimental class that doesn't do half of what we need it to, so attempt playing with the motor class">
+      <created>1450694972095</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1450694972095</updated>
+    </task>
+    <task id="LOCAL-00052" summary="additional console logging for utility purposes">
+      <created>1450695327812</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1450695327812</updated>
+    </task>
+    <task id="LOCAL-00053" summary="cross comparison of stepper and motor classes&#10;I am unconvinced that Stepper Motor class fufils reqs of this installation">
+      <created>1450695364612</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1450695364612</updated>
+    </task>
+    <task id="LOCAL-00054" summary="logging function attempts&#10;the logging to Motor Classes emitted events functions but seems to over report at present - fix this">
+      <created>1450697083855</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1450697083855</updated>
+    </task>
+    <task id="LOCAL-00055" summary="motorReporter logging false positives&#10;conditional logic employed here will always fire, revise this">
+      <created>1450697566316</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1450697566316</updated>
+    </task>
+    <task id="LOCAL-00056" summary="instructions for testing motor&#10;updating the arduino master script and READMe with updated instructions">
+      <created>1450699116218</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1450699116218</updated>
+    </task>
+    <task id="LOCAL-00057" summary="markdown presentation for insturctions">
+      <created>1450699204709</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1450699204709</updated>
+    </task>
+    <task id="LOCAL-00058" summary="markdown presentation for insturctions">
+      <created>1450699234327</created>
+      <option name="number" value="00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1450699234327</updated>
+    </task>
+    <task id="LOCAL-00059" summary="markdown presentation for insturctions">
+      <created>1450699275412</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1450699275412</updated>
+    </task>
+    <task id="LOCAL-00060" summary="removing stepper">
+      <created>1450802134178</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1450802134179</updated>
+    </task>
+    <task id="LOCAL-00061" summary="removing serialport due to conflicts&#10;potential exists for node conflicts due to bulk of modules parcelled with johnny-five">
+      <created>1450916137581</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1450916137583</updated>
+    </task>
+    <task id="LOCAL-00062" summary="noting important lacking documentation">
+      <created>1450953017371</created>
+      <option name="number" value="00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1450953017372</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1252" height="578" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lots of new modules&#10;#TODO get rid of this cruft once functional" />
+    <MESSAGE value="server + johnny-5 amendments&#10;the tests will pass but they do not initialise the LEDs - the LEDs can only be tested by running middle-ware server and executing `curl -d &quot;param1=value1&amp;param2=value2&quot; http://localhost:3000/add` to simulate POST and navigating to `http://localhost:3000` to simulate GET" />
+    <MESSAGE value="middleware-server + spec update&#10;the tests will pass but they do not initialise the LEDs - the LEDs can only be tested by running middle-ware server and executing `curl -d &quot;param1=value1&amp;param2=value2&quot; http://localhost:3000/add` to simulate POST and navigating to `http://localhost:3000` to simulate GET" />
+    <MESSAGE value="cleaning cruft&#10;johnny-five doesn't work within this #TODO = investigate why" />
+    <MESSAGE value="cleaning cruft&#10;bye bye surplus packages" />
+    <MESSAGE value="needed for stepper motor in johnny-five" />
+    <MESSAGE value="correcting dir structure error for arduino libs" />
+    <MESSAGE value="injecting stepper and led into johnny-5 REPL for play" />
+    <MESSAGE value="reincluding serialport&#10;forces node to install node-gyp which is useful" />
+    <MESSAGE value="updating read me with instructions for use" />
+    <MESSAGE value="change ignore" />
+    <MESSAGE value="more  for pi" />
+    <MESSAGE value="rounding out instructions" />
+    <MESSAGE value="including get spec&#10;NB - the middleware-server.js has to be initialised before the tests pass" />
+    <MESSAGE value="pull data from filesystem on server start" />
+    <MESSAGE value="adding motor in lieu of stepper&#10;stepper seems like a v experimental class that doesn't do half of what we need it to, so attempt playing with the motor class" />
+    <MESSAGE value="additional console logging for utility purposes" />
+    <MESSAGE value="cross comparison of stepper and motor classes&#10;I am unconvinced that Stepper Motor class fufils reqs of this installation" />
+    <MESSAGE value="logging function attempts&#10;the logging to Motor Classes emitted events functions but seems to over report at present - fix this" />
+    <MESSAGE value="motorReporter logging false positives&#10;conditional logic employed here will always fire, revise this" />
+    <MESSAGE value="instructions for testing motor&#10;updating the arduino master script and READMe with updated instructions" />
+    <MESSAGE value="markdown presentation for insturctions" />
+    <MESSAGE value="removing stepper" />
+    <MESSAGE value="removing serialport due to conflicts&#10;potential exists for node conflicts due to bulk of modules parcelled with johnny-five" />
+    <MESSAGE value="noting important lacking documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="noting important lacking documentation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/data_tracking.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="356" column="37" selection-start-line="356" selection-start-column="37" selection-end-line="356" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/json-2-csv/lib/converter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/json-2-csv/lib/json-2-csv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.912682">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/johnny-five/lib/servo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.444934">
+          <caret line="395" column="8" selection-start-line="395" selection-start-column="3" selection-end-line="395" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/johnny-five/lib/stepper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33259913">
+          <caret line="167" column="10" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_tracking.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1163" column="38" selection-start-line="1163" selection-start-column="38" selection-end-line="1163" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/johnny-five/lib/motor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="837" column="9" selection-start-line="837" selection-start-column="3" selection-end-line="837" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5251641">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
