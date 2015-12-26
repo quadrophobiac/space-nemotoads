@@ -140,6 +140,16 @@ brew install node
 credit to http://stackoverflow.com/questions/12594541/npm-global-install-cannot-find-module
 ________________________________
 
+Screen
+
+Instructions for screen do not work
+potential solution may reside here http://futurice.com/blog/id-like-to-have-some-lcd-on-my-pi
+or here
+https://github.com/swkim01/waveshare-dtoverlays
+
+or maybe not at all because this is the 5 inch model and everything is terrible 
+________________________________
+
 Stepper Motor PseduoCode
 
 Motors are being driven with https://github.com/sparkfun/Big_Easy_Driver/tree/Hw-v1.6_Fw-v1.0
