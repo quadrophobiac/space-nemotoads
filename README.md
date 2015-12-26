@@ -1,5 +1,20 @@
 the repo for the pi and api project
 
+SSH into Raspberry Pi from afar
+- may not be worth doing at all because it depends on the gallery
+:: dependencies =
+   networking knowledge of gallery
+   what sort of connection to internet will be available for the install (can it go over ethernet)
+
+Hosting a visualisation
+
+:: doing so over a local network so that visitors can connect to it is bollox for the same reason
+
+how realistic / easy / feasible do you think it would be to have something like a QR code that would direct people
+(via their smart phones) to a GUI that would give them the information we've distilled out of the API?
+
+requires me querying
+
 ### establishing Pi
 
 SSH GOTCHA
@@ -9,23 +24,26 @@ that file might have to be managed (ie entries deleted) to ensure that SSH can s
 
 upgrading pi
 # http://tech.tiefpunkt.com/2015/06/headless-raspberrypi-installation-with-raspbian-jessie/
-   11  sudo raspi-config # expand storage and change password
-   12  sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
-   13  sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list.d/*
-   14  sudo apt-get update
-   15  sudo apt-get -y dist-upgrade
-
+sudo raspi-config # expand storage and change password
+sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
+sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list.d/*
+sudo apt-get update
+sudo apt-get -y dist-upgrade
 
 ### getting node onto a pi
+echo "deb http://node-arm.herokuapp.com/ /" | sudo tee --append /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install -y --force-yes node libusb-1.0-0-dev
+echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
+
+*HT* to http://www.webondevices.com/install-node-js-on-a-raspberry-pi-and-run-javascript/
 
 ### Using Johnny-Five for node to arduino communication
 
-TODO - whatever I did to get npm running on andys pi I need to recuperate as the way I did it on mine fucks everything up
-
 *requires*
 
-Arduino Uno board
-node installed #TODO = instructions for andy
+Arduino Uno board with Firmata(prebundled) and/or [ConfigurableFirmata](https://github.com/firmata/ConfigurableFirmata
+node installed
 
 Node - Mac Installation Instructions
 ```
