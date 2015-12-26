@@ -23,7 +23,7 @@ the first time you SSH the key is stored for that IP address in ~/.ssh/known_hos
 that file might have to be managed (ie entries deleted) to ensure that SSH can still happen
 
 upgrading pi
-# http://tech.tiefpunkt.com/2015/06/headless-raspberrypi-installation-with-raspbian-jessie/
+`# http://tech.tiefpunkt.com/2015/06/headless-raspberrypi-installation-with-raspbian-jessie/`
 sudo raspi-config # expand storage and change password
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list.d/*
@@ -57,7 +57,7 @@ brew doctor
 echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
 echo $PATH
-# this puts `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin` at the beginning of your path - needed
+# this puts /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin at the beginning of your path - needed
 brew install node
 node -v
 npm version
@@ -73,18 +73,19 @@ git branch
 npm install
 # ^ this installs all the software required (and a bit more besides) to use node to control the arduino
 plug in your arduino
+```
 
-Arduino Johnny Five Set Up
-Upload File > Examples > Firmata > Standard Firmata to the Arduino Board for motor
+### Arduino Johnny Five Set Up
+`Upload File > Examples > Firmata > Standard Firmata to the Arduino Board for motor`
 Upload Configurable Firmata for Stepper - instructions [here](https://github.com/firmata/ConfigurableFirmata)
 ~~Copy the AdvancedFirmata libray from space_nemotoads/lib/AdvancedFirmata into your Mac's Arduino Folder (usually under Documents)~~
 ~~* Open the Arduino IDE, select: File > Examples > Firmata > AdvancedFirmata (should be at the bottom near the 'custom libraries heading'~~
 ~~Upload the sketch to arduino~~
 
-From within spacenemotoads run
+`From within spacenemotoads run`
 `node arduino_master.js`
-# this will open an interactive terminal interface to the arduino controlled by Johnny-Five
-# from there you can play around with the methods made available in the examples here
+`# this will open an interactive terminal interface to the arduino controlled by Johnny-Five`
+`# from there you can play around with the methods made available in the examples here`
 ```
 
 ### Using the Johnny-Five REPL
@@ -131,7 +132,7 @@ Restart the terminal window, manually or with 'source ~/.bash_profile'
 other resources
 https://gist.github.com/DanHerbert/9520689
 
-#nuclear for Mac - untested
+###nuclear for Mac - untested
 brew cleanup
 brew link node
 brew uninstall node
@@ -146,8 +147,9 @@ Instructions for screen do not work
 potential solution may reside here http://futurice.com/blog/id-like-to-have-some-lcd-on-my-pi
 or here
 https://github.com/swkim01/waveshare-dtoverlays
+or maybe here http://www.waveshare.com/wiki/5inch_HDMI_LCD
 
-or maybe not at all because this is the 5 inch model and everything is terrible 
+or maybe not at all because this is the 5 inch model and everything is terrible
 ________________________________
 
 Stepper Motor PseduoCode
