@@ -1,5 +1,11 @@
 /**
  * Created by stephenfortune on 15/12/2015.
+ * to keep building a bare bones, non framework dependant server check out here
+ * http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/ - with TDD
+ * and
+ * https://davidbeath.com/posts/testing-http-responses-in-nodejs.html - with TDD
+ * and
+ * https://gist.github.com/greduan/7743326 - as guidance on a simple server
  */
 'use strict'
 var http = require('http');
