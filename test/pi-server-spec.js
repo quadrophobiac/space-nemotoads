@@ -3,25 +3,35 @@
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
+var request = require('supertest');
 
-describe.skip('server', function(){
+describe('server', function(){
+    var server;
+    beforeEach(function(){
+        server = require('./../server.js');
+    })
 
     afterEach('log files should have changed', function(){
-
+        server.close();
     });
 
-    it('should start and listen on port ENV:????', function(){
+    it.skip('should start and listen on port ENV:????', function(){
 
         // assert - code that verifies actually working
         // assert - changes have been made to log file
 
     });
 
-    it('serves static page on $HOST:$PORT/index.html', function(){
+    it('serves static page on $HOST:$PORT/index.html', function(done){
+        request(server).get('/').expect(200, done);
 
     });
 
-    it('catchs erroneous access without crashing', function(){
+    it('404 all other requests', function(done){
+       request(server).get('/nope').expect(404, done);
+    });
+
+    it.skip('catchs erroneous access without crashing', function(){
 
     });
 
