@@ -3,11 +3,11 @@
  */
 var express = require('express');
 var app = express();
-//var port = 3000;
+var assignedPort = 3000;
 app.get('/', function(req,res){
     res.status(200).send('ok\n');
 });
-var server = app.listen(3000, function(){
+var server = app.listen(assignedPort, function(){
     var port = server.address().port;
     console.log('server listening at port %s', port);
 });
