@@ -9,8 +9,9 @@ var request = require('supertest');
 describe('server', function(){
     var server;
     beforeEach(function(){
+        delete require.cache[require.resolve('./../server.js')];
         server = require('./../server.js');
-    })
+    });
 
     //after('close server', function(done){
     //    server.close(done);
