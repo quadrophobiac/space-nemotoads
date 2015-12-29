@@ -5,7 +5,11 @@ var express = require('express');
 var app = express();
 var assignedPort = 3000;
 var fs = require('fs');
+var morgan = require('morgan');
+
 var logfile = require('./logger.js');
+var logFile = fs.createWriteStream(__dirname+"/logs/server.log", {flags: 'a'});
+app.use(morgan('combined',{stream: logFile}))
 
 app.get('/', function(req,res){
     fs.appendFileSync(__dirname+"/logs/server.log", "GET REQ RECEIVED\n", 'utf8');
