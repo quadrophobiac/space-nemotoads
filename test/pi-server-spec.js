@@ -4,21 +4,21 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 var request = require('supertest');
-var server = require('./../server.js');
+//var server = require('./../server.js');
 
 describe('server', function(){
-    //var server;
-    //beforeEach(function(){
-    //    server = require('./../server.js');
-    //})
+    var server;
+    beforeEach(function(){
+        server = require('./../server.js');
+    })
 
-    after('close server', function(done){
-        server.close(done);
-    });
-
-    //afterEach('log files should have changed', function(done){
+    //after('close server', function(done){
     //    server.close(done);
     //});
+
+    afterEach('log files should have changed', function(done){
+        server.close(done);
+    });
 
     it.skip('should start and listen on port ENV:????', function(){
 
