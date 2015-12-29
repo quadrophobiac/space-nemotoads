@@ -17,7 +17,7 @@ describe('server', function(){
     //    server.close(done);
     //});
 
-    afterEach('log files should have changed', function(done){
+    afterEach('destroy server instance', function(done){
         server.close(done);
     });
 
