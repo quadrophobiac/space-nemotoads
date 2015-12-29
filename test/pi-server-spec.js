@@ -44,6 +44,11 @@ describe('server', function(){
 });
 
 describe.skip('boot sequence', function(){
+    var server = require('./../server.js');
+
+    after('close server', function(done){
+        server.close(done);
+    });
 
     afterEach('log files should have changed', function(){
 
