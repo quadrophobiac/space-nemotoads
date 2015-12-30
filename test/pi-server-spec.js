@@ -46,8 +46,9 @@ describe('server', function(){
 describe.skip('boot sequence', function(){
     var server;
     var logState;
+    var logfile = require('./../logger.js');
 
-    beforeEach(function(){
+    before(function(){
         delete require.cache[require.resolve('./../server.js')];
         server = require('./../server.js');
     });
@@ -55,7 +56,7 @@ describe.skip('boot sequence', function(){
     beforeEach(function(){
 
     });
-
+    //
     afterEach('log files should have changed', function(){
 
     });

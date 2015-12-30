@@ -6,13 +6,26 @@ var app = express();
 var assignedPort = 3000;
 var fs = require('fs');
 var morgan = require('morgan');
+var winston = require('winston');
 
 var logfile = require('./logger.js');
-var logFile = fs.createWriteStream(__dirname+"/logs/server.log", {flags: 'a'});
-app.use(morgan('combined',{stream: logFile}))
+
+//winston.add(winston.transports.File, { filename: __dirname+"/logs/server.log"});
+
+var logger = new (winston.Logger)({
+    transports: [
+
+        new (winston.transports.File)({ filename: './logs/server.log' })
+    ]
+});
+//winston.add(winston.transports.File, { filename: './logs/server.log' });
+
+
+//var logFile = fs.createWriteStream(__dirname+"/logs/server.log", {flags: 'a'});
+//app.use(morgan('combined',{stream: logFile}))
 
 app.get('/', function(req,res){
-    fs.appendFileSync(__dirname+"/logs/server.log", "GET REQ RECEIVED\n", 'utf8');
+    //fs.appendFileSync(__dirname+"/logs/server.log", "GET REQ RECEIVED\n", 'utf8');
     res.status(200).send('ok\n');
 });
 
@@ -22,8 +35,9 @@ app.get('/index.html', function(req,res){
 
 var server = app.listen(assignedPort, function(){
 
-    fs.appendFileSync(__dirname+"/logs/server.log", "started\n", 'utf8');
+    //fs.appendFileSync(__dirname+"/logs/server.log", "started\n", 'utf8');
     var port = server.address().port;
     console.log('server listening at port %s', port);
+    logger.log('info', 'Hello distributed log files!');
 });
 module.exports = server;
