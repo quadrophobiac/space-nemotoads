@@ -33,6 +33,10 @@ describe('server', function(){
 
     });
 
+    it('serves logs to static page on ', function(){
+
+    })
+
     it('404 all other requests', function(done){
        request(server).get('/nope').expect(404, done);
     });
