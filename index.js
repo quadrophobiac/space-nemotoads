@@ -114,10 +114,10 @@ var filemgmt = function(query, apiData,tmpJSONPath,csvPath,jsonPath){
         if (c.pl_disc == d.pl_disc) {
             //console.log("equal years");
             if(Date.parse(c.rowupdate) > Date.parse(d.rowupdate)){
-                console.log("years disc: "+ c.pl_disc+" more recently updated than years disc: "+ d.pl_disc);
+                //console.log("years disc: "+ c.pl_disc+" more recently updated than years disc: "+ d.pl_disc);
                 return 1;
             }else if (Date.parse(d.rowupdate) > Date.parse(c.rowupdate)){
-                console.log("years disc: "+ d.pl_disc+" more recently updated than years disc: "+ c.pl_disc);
+                //console.log("years disc: "+ d.pl_disc+" more recently updated than years disc: "+ c.pl_disc);
                 return -1;
             }
         }
@@ -131,8 +131,7 @@ var filemgmt = function(query, apiData,tmpJSONPath,csvPath,jsonPath){
         // a must be equal to b
         return 0;
     });
-    fs.writeFileSync(jsonPath, JSON.stringify(json,null,4), 'utf8');
-    fs.writeFileSync(tmpJSONPath, JSON.stringify(json,null,4), 'utf8');
+
     if(datacompare(query,json,tmpJSONPath)){
 
         fs.writeFileSync(jsonPath, JSON.stringify(json,null,4), 'utf8');
@@ -159,8 +158,8 @@ var saveCSV = function(query, callback){
         .on('success', function(result, response){
             console.log("saving "+query+" API csv to "+tmpCSVPath);
             fs.writeFileSync(tmpCSVPath, result, 'utf8'); // store CSV from which JSON objs derived
-            //filemgmt(query, result,tmpJSONPath, csvPath,jsonPath);
-            callback(query, result,tmpJSONPath, csvPath,jsonPath);
+            filemgmt(query, result,tmpJSONPath, csvPath,jsonPath);
+            //callback(query, result,tmpJSONPath, csvPath,jsonPath);
         })
         .on('complete', function(result, response){
             console.log("completed call");
