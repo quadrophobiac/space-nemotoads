@@ -29,10 +29,12 @@ app.use(express.static(__dirname+'/'));
 app.get('/', function(req,res){
     //fs.appendFileSync(__dirname+"/logs/server.log", "GET REQ RECEIVED\n", 'utf8');
     res.status(200).send('ok\n');
+    logger.log('info', 'root requested by GET');
 });
 
 app.get('/index.html', function(req,res){
     res.status(200).send('ok\n');
+    logger.log('info', 'index requested by GET');
 });
 
 app.get('/logs', function(req,res){
@@ -52,6 +54,6 @@ var server = app.listen(assignedPort, function(){
     //fs.appendFileSync(__dirname+"/logs/server.log", "started\n", 'utf8');
     var port = server.address().port;
     console.log('server listening at port %s', port);
-    logger.log('info', 'Hello distributed log files!');
+    logger.log('info', 'server started');
 });
 module.exports = server;
