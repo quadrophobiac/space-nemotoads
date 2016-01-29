@@ -35,6 +35,7 @@ app.get('/index.html', function(req,res){
 
 app.get('/planets', function(req,res){
     var planets = require(__dirname+"/fixtures/earthSized.json");
+    //TODO - determine if this method of serving JSON optimal cref https://www.codementor.io/nodejs/tutorial/how-to-use-json-files-in-node-js
     res.json(planets);
 });
 

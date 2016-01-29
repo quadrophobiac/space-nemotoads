@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 var $ = require('jquery');
 var _ = require('underscore');
-
+//TODO modularise the below into proper dir structure
 var Planet = Backbone.Model.extend({
     defaults: {
         pl_name: '',
