@@ -16,6 +16,11 @@
         }
     });
 
+    var PlanetsCollection = Backbone.Collection.extend({
+        model: PlanetsModel,
+        comparator: "rowupdate",
+        url: "../fixtures/earthSized.json"
+    });
 
 
 })();
