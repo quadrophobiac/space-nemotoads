@@ -1,5 +1,5 @@
 node_modules/
-logs/
+logs/server.log
 compare
 tmp
 data_tracking.log
