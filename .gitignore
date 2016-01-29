@@ -1,4 +1,5 @@
 node_modules/
+logs/
 compare
 tmp
 data_tracking.log

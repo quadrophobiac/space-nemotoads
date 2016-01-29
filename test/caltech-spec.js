@@ -29,7 +29,7 @@ before(function() {
     //    exoapi.saveCSV(theFile,done);
     //});
 
-it('should emit events on complete', function(done) {
+it.skip('should emit events on complete', function(done) {
     var spy = sinon.spy();
     var emitter = new EventEmitter();
     var exoapi = new CaltechPoll();
@@ -46,7 +46,7 @@ it('should emit events on complete', function(done) {
     //});
 });
 
-it('should fetch data from the Caltech API', function(done){
+it.skip('should fetch data from the Caltech API', function(done){
     //this.timeout(0);
     var exoapi = new CaltechPoll();
     var a = exoapi.saveCSV(theFile, done);
@@ -55,7 +55,7 @@ it('should fetch data from the Caltech API', function(done){
 
 });
 
-it('should persist API data to file', function(){
+it.skip('should persist API data to file', function(){
     expect(fs.existsSync(theFile).to.equal(true));
 });
 

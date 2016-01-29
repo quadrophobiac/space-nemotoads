@@ -4,7 +4,6 @@
 'use strict'
 var util = require('util');
 var restclient = require('restler');
-var xml2js = require('xml2js');
 var fs = require('fs');
 var CSV = require('csv-string');
 
@@ -13,20 +12,20 @@ function CaltechPoll(){}
 CaltechPoll.prototype.log = function(){
     return "word";
 }
-CaltechPoll.prototype.reqObj = function(){
-    CaltechPoll.prototype.store = restclient.request('http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc&where=pl_rade%3C2.0&format=csv',
-        {
-            accept: '*/*',
-            'user-agent': 'Restler for node.js',
-            host: 'exoplanetarchive.ipac.caltech.edu',
-            'accept-encoding': 'gzip, deflate',
-            'content-length': 0
-        });
-}
-
-CaltechPoll.store.on('complete', function(){
-    var path = __dirname+'/exo.csv';
-})
+//CaltechPoll.prototype.reqObj = function(){
+//    CaltechPoll.prototype.store = restclient.request('http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc&where=pl_rade%3C2.0&format=csv',
+//        {
+//            accept: '*/*',
+//            'user-agent': 'Restler for node.js',
+//            host: 'exoplanetarchive.ipac.caltech.edu',
+//            'accept-encoding': 'gzip, deflate',
+//            'content-length': 0
+//        });
+//}
+//
+//CaltechPoll.store.on('complete', function(){
+//    var path = __dirname+'/exo.csv';
+//})
 
 
 CaltechPoll.prototype.saveCSV = function(path){
