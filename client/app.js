@@ -1,3 +1,7 @@
+var Backbone = require('backbone');
+var $ = require('jquery');
+var _ = require('underscore');
+
 var Planet = Backbone.Model.extend({
     defaults: {
         pl_name: '',
@@ -38,7 +42,7 @@ var PlanetsView = Backbone.View.extend({
             var planet = new PlanetView({
                 model: model
             });
-            console.log(planet);
+            //console.log(planet);
             $('#earth_sized_exoplanets').append(planet.render().el);
         });
 
@@ -56,10 +60,10 @@ var PlanetView = Backbone.View.extend({
 
     tagName: 'tr',
 
-    //template: _.template($('#planet-template').html()),
+    template: _.template($('#planet-template').html()),
 
     render: function() {
-        //this.$el.html(this.template(this.model.attributes));
+        this.$el.html(this.template(this.model.attributes));
         return this;
     }
 
