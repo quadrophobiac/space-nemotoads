@@ -24,68 +24,37 @@
 
     var Planets = new PlanetsCollection();
 
-    //var UsersView = Backbone.View.extend({
-    //
-    //    el: '#users',
-    //
-    //    events: {
-    //        'change #sort': 'sortCollection'
-    //    },
-    //
-    //    initialize: function() {
-    //        this.listenTo(Users, 'sort', this.render);
-    //        Users.fetch();
-    //    },
-    //
-    //    render: function() {
-    //        this.$('#users-table__body').html('');
-    //
-    //        Users.forEach(function(model) {
-    //            var user = new UserView({
-    //                model: model
-    //            });
-    //            $('#users-table__body').append(user.render().el);
-    //        });
-    //
-    //        return this;
-    //    },
-    //
-    //    sortCollection: function(e) {
-    //        Users.comparator = e.target.value;
-    //        Users.sort();
-    //    }
-    //
-    //});
-
     var PlanetsView = Backbone.View.extend({
-        el: "#planets",
 
-        //collection: new PlanetsCollection(),
+        el: '#planets',
+
+        events: {
+            'change #sort': 'sortCollection'
+        },
 
         initialize: function() {
-            var scope = this;
-            Planets.fetch({
-                success: function() {
-                    scope.render();
-                }
-            });
+            this.listenTo(Planets, 'sort', this.render);
+            Planets.fetch();
         },
 
         render: function() {
-            var scope = this;
+            this.$('#planets-table').html('');
+
             Planets.forEach(function(model) {
-                scope.output(model);
+                var user = new PlanetView({
+                    model: model
+                });
+                $('#earth_sized_exoplanets').append(user.render().el);
             });
+
             return this;
         },
 
-        output: function(model) {
-            var row = document.createElement("tr");
-            row.innerHTML = "<td>" + model.get("firstname") + "</td>\
-                     <td>" + model.get("lastname") + "</td>\
-                     <td>" + model.get("email") + "</td>";
-            this.el.appendChild(row);
+        sortCollection: function(e) {
+            Planets.comparator = e.target.value;
+            Planets.sort();
         }
+
     });
 
     var app = new PlanetsView();
