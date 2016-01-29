@@ -49,8 +49,6 @@ describe('server', function(){
 
 describe.skip('boot sequence', function(){
     var server;
-    var logState;
-    var logfile = require('./../logger.js');
 
     before(function(){
         delete require.cache[require.resolve('./../server.js')];
