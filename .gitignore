@@ -4,3 +4,4 @@ compare
 tmp
 data_tracking.log
 project_log.txt
+client/bundle.js

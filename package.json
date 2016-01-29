@@ -4,6 +4,7 @@
   "description": "code for client-server and API access",
   "main": "index.js",
   "scripts": {
+    "start": "browserify client/app.js -o client/bundle.js & node server",
     "test": "mocha"
   },
   "author": "sf",
