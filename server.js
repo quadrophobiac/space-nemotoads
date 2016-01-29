@@ -17,7 +17,7 @@ var logger = new (winston.Logger)({
 });
 //winston.add(winston.transports.File, { filename: './logs/server.log' });
 
-app.use(express.static(__dirname+'/'));
+app.use(express.static(__dirname+'/client'));
 
 //var logFile = fs.createWriteStream(__dirname+"/logs/server.log", {flags: 'a'});
 //app.use(morgan('combined',{stream: logFile}))
@@ -35,7 +35,6 @@ app.get('/index.html', function(req,res){
 
 app.get('/planets', function(req,res){
     var planets = require(__dirname+"/fixtures/earthSized.json");
-        console.log(planets);
     res.json(planets);
 });
 
