@@ -33,6 +33,12 @@ app.get('/index.html', function(req,res){
     logger.log('info', 'index requested by GET');
 });
 
+app.get('/planets', function(req,res){
+    var planets = require(__dirname+"/fixtures/earthSized.json");
+        console.log(planets);
+    res.json(planets);
+});
+
 app.get('/logs', function(req,res){
     //var logs = fs.readFileSync(__dirname+"/logs/server.log", 'utf8');
     var logs;
