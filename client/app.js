@@ -1,63 +1,68 @@
-/**
- * Created by stephenfortune on 28/01/2016.
- */
-(function() {
-    // some code here
-    var PlanetsModel = Backbone.Model.extend({
+var Planet = Backbone.Model.extend({
+    defaults: {
+        pl_name: '',
+        pl_rade: '',
+        pl_bmasse: '',
+        pl_disc: '',
+        rowupdate: ''
+    }
+});
+var PlanetsCollection = Backbone.Collection.extend({
 
-        defaults: function(){
-            return{
-                pl_name: "",
-                pl_rade: "",
-                pl_bmasse: "",
-                pl_disc: "",
-                rowupdate: ""
-            }
-        }
-    });
+    model: Planet,
+    url: 'http://localhost:3000/planets',
+    comparator: 'rowupdate'
 
-    var PlanetsCollection = Backbone.Collection.extend({
-        model: PlanetsModel,
-        comparator: "rowupdate",
-        url: "../fixtures/earthSized.json"
-    });
+});
 
-    var Planets = new PlanetsCollection();
+var Planets = new PlanetsCollection();
 
-    var PlanetsView = Backbone.View.extend({
+var PlanetsView = Backbone.View.extend({
 
-        el: '#planets',
+    el: '#planets',
 
-        events: {
-            'change #sort': 'sortCollection'
-        },
+    events: {
+        'change #sort': 'sortCollection'
+    },
 
-        initialize: function() {
-            this.listenTo(Planets, 'sort', this.render);
-            Planets.fetch();
-        },
+    initialize: function() {
+        this.listenTo(Planets, 'sort', this.render);
+        Planets.fetch();
+    },
 
-        render: function() {
-            this.$('#planets-table').html('');
+    render: function() {
+        this.$('#planets-table__body').html('');
 
-            Planets.forEach(function(model) {
-                var user = new PlanetView({
-                    model: model
-                });
-                $('#earth_sized_exoplanets').append(user.render().el);
+        Planets.forEach(function(model) {
+
+            var planet = new PlanetView({
+                model: model
             });
+            console.log(planet);
+            $('#earth_sized_exoplanets').append(planet.render().el);
+        });
 
-            return this;
-        },
+        return this;
+    },
 
-        sortCollection: function(e) {
-            Planets.comparator = e.target.value;
-            Planets.sort();
-        }
+    sortCollection: function(e) {
+        Planets.comparator = e.target.value;
+        Planets.sort();
+    }
 
-    });
+});
 
-    var app = new PlanetsView();
+var PlanetView = Backbone.View.extend({
 
+    tagName: 'tr',
 
-})();
+    //template: _.template($('#planet-template').html()),
+
+    render: function() {
+        //this.$el.html(this.template(this.model.attributes));
+        return this;
+    }
+
+});
+
+new PlanetsView();

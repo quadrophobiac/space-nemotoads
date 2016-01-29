@@ -2,27 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Users Directory</title>
-    <meta name="description" content="A little experiment on generating a users directory with BackboneJS and JSON data.">
     <link rel="stylesheet" href="css/main.css">
 </head>
-    <body>
+<body>
 
-    ...
+...
+<main class="main">
+    <div class="container">
 
-    <div id="planets">
-        <table id="planets-table">
-            <thead>
-            <tr>
-                <th>pl_name</th>
-                <th>pl_rade</th>
-                <th>pl_bmasse</th>
-                <th>pl_disc</th>
-            </tr>
-            </thead>
-            <tbody id="earth_sized_exoplanets"></tbody>
-        </table>
+        <div id="planets">
+            <form action="#" id="planets-sort" class="planets-sort">
+                <label for="sort">Sort by:</label>
+                <select name="sort" id="sort">
+                    <option value="pl_name">name</option>
+                    <option value="pl_rade">radius</option>
+                    <option value="pl_bmasse">Email address</option>
+                    <option value="pl_disc">Year</option>
+                    <option value="rowupdate">date</option>
+                </select>
+            </form><!-- /planets-sort -->
+            <table id="planets-table">
+                <thead>
+                <tr>
+                    <th>pl_name</th>
+                    <th>pl_rade</th>
+                    <th>pl_bmasse</th>
+                    <th>pl_disc</th>
+                    <th>rowupdate</th>
+                </tr>
+                </thead>
+                <tbody id="earth_sized_exoplanets"></tbody>
+            </table>
+        </div>
     </div>
+</main>
+...
+<!-- TEMPLATES -->
+<script type="text/template" id="planet-template">
+    <td><%= pl_name %></td>
+    <td><%= pl_rade %></td>
+    <td><%= pl_bmasse %></td>
+    <td><%= pl_disc %></td>
+    <td><%= rowupdate %></td>
+</script>
     ...
     <script src="../node_modules/backbone/node_modules/underscore/underscore.js"></script>
     <script src="../node_modules/backbone/backbone.js"></script>
