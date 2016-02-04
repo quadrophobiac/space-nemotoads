@@ -1,23 +1,10 @@
 var Backbone = require('backbone');
 var $ = require('jquery');
 var _ = require('underscore');
+//var Planet = require('./models/Planet');
+var PlanetsCollection = require('./collections/PlanetsCollection');
+//var PlanetsView = require('./views/PlanetsView');
 //TODO modularise the below into proper dir structure
-var Planet = Backbone.Model.extend({
-    defaults: {
-        pl_name: '',
-        pl_rade: '',
-        pl_bmasse: '',
-        pl_disc: '',
-        rowupdate: ''
-    }
-});
-var PlanetsCollection = Backbone.Collection.extend({
-
-    model: Planet,
-    url: 'http://localhost:3000/planets',
-    comparator: 'rowupdate'
-
-});
 
 var Planets = new PlanetsCollection();
 
@@ -30,6 +17,7 @@ var PlanetsView = Backbone.View.extend({
     },
 
     initialize: function() {
+
         this.listenTo(Planets, 'sort', this.render);
         Planets.fetch();
     },
