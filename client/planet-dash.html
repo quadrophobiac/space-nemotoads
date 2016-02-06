@@ -15,9 +15,10 @@
                 <select name="sort" id="sort">
                     <option value="pl_name">name</option>
                     <option value="pl_rade">radius</option>
-                    <option value="pl_bmasse">Email address</option>
-                    <option value="pl_disc">Year</option>
-                    <option value="rowupdate">date</option>
+                    <option value="pl_bmasse">mass</option>
+                    <option value="pl_disc">year-discovered</option>
+                    <option value="rowupdate">date-discovered</option>
+                    <option value="rowupdate">surface-gravity</option>
                 </select>
             </form><!-- /planets-sort -->
             <table id="planets-table">
@@ -28,6 +29,7 @@
                     <th>pl_bmasse</th>
                     <th>pl_disc</th>
                     <th>rowupdate</th>
+                    <th>gravity</th>
                 </tr>
                 </thead>
                 <tbody id="earth_sized_exoplanets"></tbody>
@@ -43,6 +45,7 @@
     <td><%= pl_bmasse %></td>
     <td><%= pl_disc %></td>
     <td><%= rowupdate %></td>
+    <td><%= gravity %></td>
 </script>
     ...
     <!--<script src="../node_modules/backbone/node_modules/underscore/underscore.js"></script>-->
