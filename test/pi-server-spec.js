@@ -6,6 +6,8 @@ var should = require('chai').should();
 var request = require('supertest');
 //var server = require('./../server.js');
 
+//TODO - currently server doesn't work when a server instance is initialised by npm start - investigate
+
 describe('server', function(){
     var server;
     beforeEach(function(){
