@@ -2,28 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title></title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!--CUSTOM-->
+    <link rel="stylesheet" href="CSS/custom.css">
+</head>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <!--TODO - sorting functinality from source page https://github.com/callmenick/Backbone-Users-Directory disabled for now-->
 <main class="main">
-    <div class="container">
+    <div class="container-fluid">
+        <div style="border: 1px solid red; padding-top: 8%; padding-bottom: 8%;" class="row">
 
-        <div id="planets">
+            <div class="col-xs-10">
+                <div id="planets" class="table-responsive">
 
-            <table id="planets-table">
-                <thead>
-                <tr>
-                    <th>pl_name</th>
-                    <th>pl_rade</th>
-                    <th>pl_bmasse</th>
-                    <th>pl_disc</th>
-                    <th>rowupdate</th>
-                    <th>gravity</th>
-                </tr>
-                </thead>
-                <tbody id="earth_sized_exoplanets"></tbody>
-            </table>
+                    <table id="planets-table" class="table" style="font-size:29px">
+                        <thead>
+                        <tr style="font-family: octin;">
+                            <th>Name</th>
+                            <th style="text-align:center;">Discovery</th>
+                            <th>Gravity</th>
+                        </tr>
+                        </thead>
+                        <tbody id="earth_sized_exoplanets" style="font-family: octin;font-size:33px"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-2" style="border: 1px solid red;padding: 8px"></div>
         </div>
     </div>
 </main>
@@ -31,10 +40,7 @@
 <!-- TEMPLATES -->
 <script type="text/template" id="planet-template">
     <td><%= pl_name %></td>
-    <td><%= pl_rade %></td>
-    <td><%= pl_bmasse %></td>
-    <td><%= pl_disc %></td>
-    <td><%= rowupdate %></td>
+    <td style="text-align:center;"><%= pl_disc %></td>
     <td><%= gravity %></td>
 </script>
     ...
