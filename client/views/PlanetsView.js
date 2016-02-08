@@ -12,10 +12,6 @@ var PlanetsView = Backbone.View.extend({
 
     el: '#planets',
 
-    events: {
-        'change #planets-sort': 'sortCollection'
-    },
-
     initialize: function() {
         this.listenTo(Planets, 'sort', this.render);
         Planets.fetch();
@@ -24,13 +20,23 @@ var PlanetsView = Backbone.View.extend({
     render: function() {
         this.$('#planets-table__body').html('');
 
-        Planets.forEach(function(model) {
-
+        for(var i = 0; i < 3; i++){
+            var aPlanet = Planets.pop();
             var planet = new PlanetView({
-                model: model
+                model: aPlanet
             });
+            console.log(planet);
             $('#earth_sized_exoplanets').append(planet.render().el);
-        });
+        }
+
+        //Planets.forEach(function(model) {
+        //
+        //    var planet = new PlanetView({
+        //        model: model
+        //    });
+        //    console.log(planet);
+        //    $('#earth_sized_exoplanets').append(planet.render().el);
+        //});
 
         return this;
     },
