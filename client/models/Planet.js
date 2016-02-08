@@ -14,7 +14,8 @@ var Planet = Backbone.Model.extend({
         pl_disc: '',
         rowupdate: '',
         gravity: '0'
-    },
+    }
+    ,
     initialize: function(){
         this.set('gravity', gravity.surfaceGravity(this.get('pl_bmasse'),this.get('pl_rade')));
     }
