@@ -13,7 +13,7 @@ var PlanetsView = Backbone.View.extend({
     el: '#planets',
 
     events: {
-        'change #sort': 'sortCollection'
+        'change #planets-sort': 'sortCollection'
     },
 
     initialize: function() {
@@ -29,7 +29,6 @@ var PlanetsView = Backbone.View.extend({
             var planet = new PlanetView({
                 model: model
             });
-            //console.log(planet);
             $('#earth_sized_exoplanets').append(planet.render().el);
         });
 
@@ -38,6 +37,7 @@ var PlanetsView = Backbone.View.extend({
 
     sortCollection: function(e) {
         Planets.comparator = e.target.value;
+        //TODO - something is happening with the sort function that adds more models to the collection
         Planets.sort();
     }
 
