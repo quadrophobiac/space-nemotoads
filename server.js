@@ -6,8 +6,15 @@ var app = express();
 var assignedPort = 5000;
 var fs = require('fs');
 var winston = require('winston');
-// winston vs morgan = http://devgigs.blogspot.ie/2014/01/mastering-nodejs-logging.html || https://www.loggly.com/ultimate-guide/node-logging-basics/
-var planets = require(__dirname+"/client/data/earthSized.json"); // new location
+//var planets = require(__dirname+"/client/data/earthSized.json"); // new location
+var planets = require(__dirname+"/fixtures/earthSized.json"); // old location
+var yargs = require('yargs').argv;
+
+if(Object.keys(yargs).length >= 5){
+    console.log("FUCK YEAH");
+}
+
+console.log(process.argv);
 
 var logger = new (winston.Logger)({
     transports: [
@@ -45,6 +52,9 @@ app.get('/planets/:planet_id', function(req, res) {
 });
 
 app.get('/selected_planets', function(req,res){
+    if(Object.keys(yargs).length >= 5){
+
+    }
 
 })
 
