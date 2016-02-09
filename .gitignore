@@ -1,5 +1,6 @@
 node_modules/
 logs/server.log
+fixtures
 compare
 tmp
 data_tracking.log
