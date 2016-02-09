@@ -8,13 +8,6 @@ var fs = require('fs');
 var winston = require('winston');
 //var planets = require(__dirname+"/client/data/earthSized.json"); // new location
 var planets = require(__dirname+"/fixtures/earthSized.json"); // old location
-var yargs = require('yargs').argv;
-
-if(Object.keys(yargs).length >= 5){
-    console.log("FUCK YEAH");
-}
-
-console.log(process.argv);
 
 var logger = new (winston.Logger)({
     transports: [
@@ -51,10 +44,12 @@ app.get('/planets/:planet_id', function(req, res) {
         res.json(planets[req.params.planet_id]);
 });
 
-app.get('/selected_planets', function(req,res){
-    if(Object.keys(yargs).length >= 5){
+var seedArr = []
+// TODO fill seedarr with 3 numbers
 
-    }
+app.get('/selected_planets', function(req,res){
+    // TODO use seed arr to generate an endpoint containing only three randomly selected planets
+    // TODO use this as the endpoint that the backbone app consumes
 
 })
 
