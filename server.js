@@ -7,7 +7,7 @@ var assignedPort = 5000;
 var fs = require('fs');
 var winston = require('winston');
 // winston vs morgan = http://devgigs.blogspot.ie/2014/01/mastering-nodejs-logging.html || https://www.loggly.com/ultimate-guide/node-logging-basics/
-var planets = require(__dirname+"/client/data/earthSized.json");
+var planets = require(__dirname+"/client/data/earthSized.json"); // new location
 
 var logger = new (winston.Logger)({
     transports: [
