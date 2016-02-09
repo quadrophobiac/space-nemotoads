@@ -31,12 +31,15 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 
 ### getting node onto a pi
-echo "deb http://node-arm.herokuapp.com/ /" | sudo tee --append /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get install -y --force-yes node libusb-1.0-0-dev
-echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
+~~echo "deb http://node-arm.herokuapp.com/ /" | sudo tee --append /etc/apt/sources.list~~  
+~~sudo apt-get update~~  
+~~sudo apt-get install -y --force-yes node libusb-1.0-0-dev~~  
+~~echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile~~  
 
-*HT* to http://www.webondevices.com/install-node-js-on-a-raspberry-pi-and-run-javascript/
+~~*HT* to http://www.webondevices.com/install-node-js-on-a-raspberry-pi-and-run-javascript/~~
+
+Using the presupplied HDMI Screen Image requires different approach because of prebundled distro  
+npm needs to be a higher version than one supplied with above process  
 
 ### Using Johnny-Five for node to arduino communication
 
