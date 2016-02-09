@@ -7,7 +7,7 @@ var assignedPort = 5000;
 var fs = require('fs');
 var winston = require('winston');
 // winston vs morgan = http://devgigs.blogspot.ie/2014/01/mastering-nodejs-logging.html || https://www.loggly.com/ultimate-guide/node-logging-basics/
-
+var planets = require(__dirname+"/client/data/earthSized.json");
 
 var logger = new (winston.Logger)({
     transports: [
@@ -34,25 +34,19 @@ app.get('/index.html', function(req,res){
 });
 
 app.get('/planets', function(req,res){
-    var planets = require(__dirname+"/client/data/earthSized.json");
-    //TODO - determine if this method of serving JSON optimal cref https://www.codementor.io/nodejs/tutorial/how-to-use-json-files-in-node-js
+    // publish json object to end point
     res.json(planets);
 });
 
-// TODO create a way that each planet in a collection can be viewed
 app.get('/planets/:planet_id', function(req, res) {
-        var allplanets = require('./client/data/earthSized.json');
-        console.log(typeof allplanets);
-        console.log(req.params.planet_id);
-        console.log(allplanets[1]);
-
-        //if (err){res.send(err);}
+        // make arrayindexed elements of planets json object available over API
         //res.send(allplanets[req.params.planet_id]);
-        res.json(allplanets[req.params.planet_id]);
-        //    console.log(req.params.planet_id);
-            //res.json(bear);
-        //});
-    });
+        res.json(planets[req.params.planet_id]);
+});
+
+app.get('/selected_planets', function(req,res){
+
+})
 
 app.get('/logs', function(req,res){
     //var logs = fs.readFileSync(__dirname+"/logs/server.log", 'utf8');
