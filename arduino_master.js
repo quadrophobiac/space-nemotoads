@@ -13,12 +13,14 @@ board.on("ready", function() {
     //Object.getOwnPropertyNames();
     var stepper = new five.Stepper({
         type: five.Stepper.TYPE.DRIVER,
-        stepsPerRev: 200,
+        stepsPerRev: 400,
         rpm: 180,
         pins: {
             step: 10,
             dir: 9
-        }
+        },
+        accel: 400,
+        decel: 400
         // it is better to pass accel and decel as params to a function as they impact speed otherwise
         //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
@@ -31,7 +33,7 @@ board.on("ready", function() {
     // passing RPM and speed will result in no movement
 
     //EG FUNCTIONS
-    //stepper.step({ steps: 2000, direction: 1, accel: 1600, decel: 1600 }, function() { console.log("Done stepping!");});
+    //stepper.step({ steps:16000, direction: 1, accel: 1600, decel: 1600 }, function() { console.log("Done stepping!");});
 
     var stepperState = function(stepObj){
         return {
@@ -41,6 +43,10 @@ board.on("ready", function() {
             acceleration: stepObj.accel(),
             deceleration: stepObj.decel()
         }
+    }
+
+    function test(){
+        stepper.step({ steps:16000, direction: 1, accel: 1600, decel: 1600 }, function() { console.log("Done stepping!");})();
     }
 
     //stepper1.rpm(180).ccw().accel(1600).decel(1600).step(2000, function() {
@@ -61,7 +67,8 @@ board.on("ready", function() {
     this.repl.inject({
         led: led,
         stepper: stepper,
-        log: stepperState
+        log: stepperState,
+        test: test
     });
 
 });
