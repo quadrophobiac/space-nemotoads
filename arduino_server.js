@@ -1,34 +1,34 @@
-/**
- * Created by stephenfortune on 17/12/2015.
- */
-var http = require('http');
-var five = require("johnny-five");
+var express = require('express');
+var assignedPort = 3000;
+var app = express();
+var planetdata = require('./fixtures/earthSized.json');
 
-var board = new five.Board();
-var led;
-
-board.on("ready", function() {
-    console.log('Arduino connected');
-    led = new five.Led(13);
+app.get('/start', function(req,res){
+    res.status(200).send('ok\n');
+    console.log('start motors');
 });
 
-var server = module.exports = http.createServer(function (req, res) {
-
-    if (req.headers['content-type'] === 'text/plain') {
-
-        var body = '';
-        req.on('data', function (chunk) {
-            body += chunk.toString();
-        });
-
-        req.on('end', function () {
-            res.writeHead(200, {'Content-Type': 'text/plain'});
-            res.end('correct header');
-            server.emit('success', body); // THIS is the thing
-        });
-
-    } else {
-        res.writeHead(400, {'Content-Type': 'text/plain'});
-        res.end('wrong header');
-    };
+app.get('/pause', function(req,res){
+    // pause server and motors
+    res.status(200).send('ok\n');
+    console.log('begin pausing');
 });
+
+app.get('/reset', function(req,res){
+    // pause server and motors
+    res.status(200).send('ok\n');
+    console.log('motors halt, reboot');
+});
+
+var server = app.listen(assignedPort, function(){
+
+    console.log(typeof planetdata);
+    //fs.appendFileSync(__dirname+"/logs/server.log", "started\n", 'utf8');
+    var port = server.address().port;
+    console.log('server listening at port %s', port);
+    //logger.log('info', 'server started');
+
+    //startarduino();
+
+});
+module.exports = server;
