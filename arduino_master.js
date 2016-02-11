@@ -1,3 +1,5 @@
+//usage from command line = node arduino_master.js repl
+
 var REPLcheck = process.argv.pop();
 console.log(REPLcheck);
 if(REPLcheck === "repl"){
