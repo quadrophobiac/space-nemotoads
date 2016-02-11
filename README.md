@@ -170,3 +170,22 @@ and vary the speed they rotate at.
 
 all the raspberry will need to do is update the variable that dictates speed.
 once every X minutes the rotation will stop for X minutes and then restart.
+
+___
+
+package versions for freezing on merge for this branch
+
+{
+    "body-parser": "^1.14.2",
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "csv-string": "^2.3.0",
+    "express": "^4.13.3",
+    "johnny-five": "^0.9.16",
+    "json-2-csv": "^2.0.10",
+    "mocha": "^2.3.4",
+    "request": "^2.67.0",
+    "restler": "^3.4.0",
+    "sinon": "^1.17.2",
+    "supertest": "^1.1.0"
+  }
