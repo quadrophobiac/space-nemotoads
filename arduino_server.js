@@ -4,11 +4,18 @@ var app = express();
 var planetdata = require('./fixtures/earthSized.json');
 var arduino = require('./arduino_master');
 
+var rpmVals = {
+    0: 180,
+    1: 154,
+    2: 115.8
+}
+//var rpmVals = {0: 180, 1: 154, 2: 115.8}
+//1.18 1.28 1.41 avg = 1.29
 
 app.get('/start', function(req,res){
     res.status(200).send('ok\n');
     console.log('start motors');
-    arduino.startsteppers(180,20000,200);
+    arduino.startsteppers(rpmVals,20000);
 });
 
 app.get('/pause', function(req,res){
