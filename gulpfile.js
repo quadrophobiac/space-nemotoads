@@ -35,10 +35,15 @@ gulp.task('nodemon', function (cb) {
 			started = true;
 		}
 	}).on('restart', function () {
-		request('http://localhost:5000/planets',reqcb);
+		setTimeout(function () {
+			ping();
+		}, 60000);
 	});
 });
 
+var ping = function(){
+	request('http://localhost:5000/planets',reqcb);
+}
 
 var reqcb = function(error, response, body){
 	if (!error && response.statusCode == 200) {
