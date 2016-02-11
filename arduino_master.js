@@ -3,7 +3,7 @@ var board = new five.Board();
 
 board.on("ready", function() {
     // Create an Led on pin 13
-    console.log('Arduino connected');
+    console.log('Arduino connected\n type test() to ensure that motor is spinning\n use run(0,1,2) to calibrate different rpm; steps ; accel | decel ');
     var led = new five.Led(13);
     led.off(); // set led off for basic board comms debug enabling
     var motor = new five.Motor([3, 8, 11]);
@@ -52,12 +52,13 @@ board.on("ready", function() {
         });
     }
 
-    var run = function(step,acc,dec){
+    var run = function(rpm,step,slowdown){
         stepper.step(
             {
+                rpm: rpm,
                 steps:step,
-                accel: acc,
-                decel: dec
+                accel: slowdown,
+                decel: slowdown
             }, function() {
                 console.log("Done stepping!");
             });
