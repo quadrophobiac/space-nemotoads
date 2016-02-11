@@ -11,13 +11,28 @@ board.on("ready", function() {
     //Accelstepper1 stepper11(1,10,9); // stepper1 ( , StepPin, DirectionPin )
     //Object.getOwnPropertyNames();
     var stepper1 = new five.Stepper({
-        id: "stepper1",
+
         type: five.Stepper.TYPE.DRIVER,
         stepsPerRev: 400,
         rpm: 180,
         pins: {
             step: 10,
             dir: 9
+        },
+        accel: 400,
+        decel: 400,
+        direction: 1
+        // it is better to pass accel and decel as params to a function as they impact speed otherwise
+        //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
+    });
+
+    var stepper2 = new five.Stepper({
+        type: five.Stepper.TYPE.DRIVER,
+        stepsPerRev: 400,
+        rpm: 180,
+        pins: {
+            step: 6,
+            dir: 5
         },
         accel: 400,
         decel: 400,
@@ -41,6 +56,8 @@ board.on("ready", function() {
         // it is better to pass accel and decel as params to a function as they impact speed otherwise
         //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
+
+    var stepperArray = [stepper1, stepper2, stepper3];
 
     // daisy chaining
     //if you set speed after RPM rpm resets and wont move
@@ -76,7 +93,7 @@ board.on("ready", function() {
                 accel: slowdown,
                 decel: slowdown
             }, function() {
-                console.log("Done stepping! send me more data"); // prints after the step
+                console.log("Done stepping!"); // prints after the step
         });
     }
 
@@ -89,24 +106,16 @@ board.on("ready", function() {
                 accel: slowdown,
                 decel: slowdown
             }, function() {
-                console.log((stepper.id+1)+" done stepping! send me more data"); // prints after the step
+                console.log((stepper.id+1)+" done stepping!"); // prints after the step
             });
     }
 
-    //stepper1.rpm(180).ccw().accel(1600).decel(1600).step(2000, function() {
-    //
-    //    console.log("Done moving CCW");
-    //
-    //    // once first movement is done, make 10 revolutions clockwise at previously
-    //    //      defined speed, accel, and decel by passing an object into stepper1.step
-    //    stepper1.step({
-    //        steps: 2000,
-    //        direction: five.stepper1.DIRECTION.CW
-    //    }, function() {
-    //        console.log("Done moving CW");
-    //    });
-    //});
-
+    var startsteppers = function(rpm,step,slowdown){
+        stepperArray.forEach(function(ele,index){
+            runstepper(ele,rpm,step,slowdown);
+        })
+    }
+    
     // make the LED accessible from REPL command line
     this.repl.inject({
         led: led,
@@ -114,6 +123,7 @@ board.on("ready", function() {
         three: stepper3,
         log: stepperState,
         runstepper: runstepper,
+        startsteppers: startsteppers
     });
 
 });
