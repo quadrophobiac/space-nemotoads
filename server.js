@@ -35,7 +35,8 @@ app.get('/index.html', function(req,res){
 
 app.get('/planets', function(req,res){
     // publish json object to end point
-    res.json(planets);
+    console.log("PLANETS");
+    res.status(200).json(planets);
 });
 
 app.get('/planets/:planet_id', function(req, res) {
