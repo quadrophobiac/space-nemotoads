@@ -80,7 +80,8 @@ plug in your arduino
 
 ### Additional Install Instructions
 
-this repo has made changes to the johnny-five code lib/stepper.js
+this repo has made changes to the johnny-five code lib/stepper.js  
+better resolution may be required - see here https://docs.npmjs.com/cli/link
 
 ### Arduino Johnny Five Set Up
 `Upload File > Examples > Firmata > Standard Firmata to the Arduino Board for motor`
