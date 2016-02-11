@@ -1,15 +1,15 @@
 //usage from command line = node arduino_master.js repl
 
 var REPLcheck = process.argv.pop();
-console.log(REPLcheck);
+
 if(REPLcheck === "repl"){
     console.log('command line invocation');
     var five = require("johnny-five");
     var board = new five.Board({repl: true});
 } else {
-    console.log('cmd argsnot  passed');
+    console.log('cmd args not passed');
     var five = require("johnny-five");
-    var board = new five.Board({repl: false});
+    var board = new five.Board({repl: false}); // passing this arg makes no difference :/
 }
 
 board.on("connect", function(event) {
@@ -133,11 +133,21 @@ board.on("ready", function() {
             });
     }
 
-    this.startsteppers = function(rpm,step,slowdown){
+    this.startsteppers = function(rpmValues,step){
         //console.log(this);
+
         board.stepperArray.forEach(function(ele,index){
-            runstepper(ele,rpm,step,slowdown);
+            var slowdown = toptailSmoothing(rpmValues[index]);
+            console.log("starting motor "+ele.id+" with values - rpm: "
+                +rpmValues[index]+", duration of "+step+" steps "+" toptail of "+slowdown);
+            runstepper(ele,rpmValues[index],step,slowdown);
         })
+    }
+
+    var toptailSmoothing = function(rpm){
+        console.log(rpm);
+        // function to account for odd error in stepper motor where RPM & slowdown vals can conflict
+        return(rpm/1.29);
     }
 
     if (this.REPL === true) {
