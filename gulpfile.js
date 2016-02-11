@@ -5,6 +5,7 @@ var browserSync = require('browser-sync');
 var nodemon = require('gulp-nodemon');
 var browserify 	= require('gulp-browserify');
 var source = require('vinyl-source-stream');
+var request = require('request');
 
 gulp.task('default', ['browser-sync'], function () {
 });
@@ -15,7 +16,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 			proxy: "http://localhost:5000",
         //files: ["client/data/*.*"],
 		files: ["fixtures/*.json"],
-        browser: "google chrome",
+        browser: "firefox",
         port: 7000,
 	});
 });
@@ -33,5 +34,16 @@ gulp.task('nodemon', function (cb) {
 			cb();
 			started = true;
 		}
+	}).on('restart', function () {
+		request('http://localhost:5000/planets',reqcb);
 	});
 });
+
+
+var reqcb = function(error, response, body){
+	if (!error && response.statusCode == 200) {
+		//console.log(body); // Show the HTML for the Modulus homepage.
+	} else {
+		console.log("astray");
+	}
+}
