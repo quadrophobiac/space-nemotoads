@@ -145,9 +145,11 @@ board.on("ready", function() {
     }
 
     var toptailSmoothing = function(rpm){
-        console.log(rpm);
         // function to account for odd error in stepper motor where RPM & slowdown vals can conflict
-        return(rpm/1.29);
+        //return(rpm/1.29);
+        var smooth = rpm-30;
+        smooth < 100 ? smooth = 100 : smooth
+        return smooth;
     }
 
     if (this.REPL === true) {
