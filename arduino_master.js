@@ -1,6 +1,10 @@
 var five = require("johnny-five");
 var board = new five.Board();
 
+board.on("connect", function(event) {
+    console.log("connected");
+})
+
 board.on("ready", function() {
     // Create an Led on pin 13
     console.log('Arduino connected\n steppers `one` and `three` available\n use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel ');
@@ -57,7 +61,7 @@ board.on("ready", function() {
         //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
 
-    var stepperArray = [stepper1, stepper2, stepper3];
+    this.stepperArray = [stepper1, stepper2, stepper3];
 
     // daisy chaining
     //if you set speed after RPM rpm resets and wont move
@@ -110,21 +114,25 @@ board.on("ready", function() {
             });
     }
 
-    var startsteppers = function(rpm,step,slowdown){
-        stepperArray.forEach(function(ele,index){
+    this.startsteppers = function(rpm,step,slowdown){
+        this.stepperArray.forEach(function(ele,index){
             runstepper(ele,rpm,step,slowdown);
         })
     }
-    
-    // make the LED accessible from REPL command line
-    this.repl.inject({
-        led: led,
-        one: stepper1,
-        three: stepper3,
-        log: stepperState,
-        runstepper: runstepper,
-        startsteppers: startsteppers
-    });
+
+    if (this.repl === true) {
+        console.log("repl available");
+        // make the LED accessible from REPL command line
+        this.repl.inject({
+            led: led,
+            one: stepper1,
+            three: stepper3,
+            log: stepperState,
+            runstepper: runstepper
+        });
+    } else {
+        console.log("no repl support");
+    }
 
 });
 
@@ -136,3 +144,4 @@ board.on('data', function(freq, led){
     led.blink(freq);
 
 });
+module.exports = board;
