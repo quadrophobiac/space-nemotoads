@@ -78,6 +78,10 @@ npm install
 plug in your arduino
 ```
 
+### Additional Install Instructions
+
+this repo has made changes to the johnny-five code lib/stepper.js
+
 ### Arduino Johnny Five Set Up
 `Upload File > Examples > Firmata > Standard Firmata to the Arduino Board for motor`
 Upload Configurable Firmata for Stepper - instructions [here](https://github.com/firmata/ConfigurableFirmata)
