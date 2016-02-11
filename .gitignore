@@ -1,4 +1,8 @@
-node_modules/
+node_modules/*
+!node_modules/johnny-five/*
+!node_modules/johnny-five/lib/stepper.js
+!node_modules/!johnny-five/node_modules/*/**
+!node_modules/!johnny-five/test/*/**
 data_tracking.log
 project_log.txt
 .idea/workspace.xml
