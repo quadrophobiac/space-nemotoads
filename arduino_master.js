@@ -20,7 +20,8 @@ board.on("ready", function() {
             dir: 9
         },
         accel: 400,
-        decel: 400
+        decel: 400,
+        direction: 1
         // it is better to pass accel and decel as params to a function as they impact speed otherwise
         //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
@@ -45,8 +46,21 @@ board.on("ready", function() {
         }
     }
 
-    function test(){
-        stepper.step({ steps:16000, direction: 1, accel: 1600, decel: 1600 }, function() { console.log("Done stepping!");})();
+    var test = function(){
+        stepper.step({ steps:16000, accel: 1600, decel: 1600 }, function() {
+            console.log("Done stepping!");
+        });
+    }
+
+    var run = function(step,acc,dec){
+        stepper.step(
+            {
+                steps:step,
+                accel: acc,
+                decel: dec
+            }, function() {
+                console.log("Done stepping!");
+            });
     }
 
     //stepper1.rpm(180).ccw().accel(1600).decel(1600).step(2000, function() {
@@ -68,7 +82,8 @@ board.on("ready", function() {
         led: led,
         stepper: stepper,
         log: stepperState,
-        test: test
+        test: test,
+        run: run
     });
 
 });
