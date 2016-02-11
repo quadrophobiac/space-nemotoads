@@ -5,41 +5,13 @@ board.on("ready", function() {
     // Create an Led on pin 13
     console.log('Arduino connected');
     var led = new five.Led(13);
-    // Blink every half second
-    //led.blink(500);
-    led.off();
-
-    var motor = new five.Motor({
-        id: "motor1",
-        pins: {
-            pwm: 3,
-            dir: 4
-        }
-    });
-
-    var motorReporter = function(err, stamp){
-        console.log("logging callback func");
-
-        if(!this.isOn){
-            console.log("someone has halted motor: "+this.id+" and speed = "+this.currentSpeed);
-        } else {
-            console.log(this.id+", running = "+this.isOn+", current speed = "+this.currentSpeed);
-        }
-    }
-    //console.log(Object.getOwnPropertyNames(motor));
-    //
-    //motor.on("forward", motorReporter);
-    //motor.on("stop", motorReporter);
-    //motor.on("start", motorReporter);
-
-    //stepper1s
+    led.off(); // set led off for basic board comms debug enabling
+    var motor = new five.Motor([3, 8, 11]);
 
     //Arduino syntax
     //Accelstepper1 stepper11(1,10,9); // stepper1 ( , StepPin, DirectionPin )
-
-
-
-    var stepper1 = new five.Stepper({
+    //Object.getOwnPropertyNames();
+    var stepper = new five.Stepper({
         type: five.Stepper.TYPE.DRIVER,
         stepsPerRev: 200,
         rpm: 180,
@@ -48,29 +20,28 @@ board.on("ready", function() {
             dir: 9
         }
         // it is better to pass accel and decel as params to a function as they impact speed otherwise
-        //eg function stepper1.rpm(189).decel(1600).ccw().step(8000, function(){});
+        //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
-    var stepper2 = new five.Stepper({
-        type: five.Stepper.TYPE.DRIVER,
-        stepsPerRev: 200,
-        rpm: 180,
-        pins: {
-            step: 2,
-            dir: 1
-        },
-        //speed: 0.75400, increasing this from 0 slows the motor
-        accel: 1600,
-        decel: 1600
-    });
-    console.log(Object.getOwnPropertyNames(stepper1));
-    var stepperReporter = function(err,stamp){
-        console.log(this);
-    }
-    //
-    stepper1.on("step", stepperReporter);
-    //console.log(Object.getOwnPropertyNames(stepper2));
-    //console.log(stepper2.speed());
 
+    // daisy chaining
+    //if you set speed after RPM rpm resets and wont move
+    //RPM after speed is ok
+
+    // passing opts
+    // passing RPM and speed will result in no movement
+
+    //EG FUNCTIONS
+    //stepper.step({ steps: 2000, direction: 1, accel: 1600, decel: 1600 }, function() { console.log("Done stepping!");});
+
+    var stepperState = function(stepObj){
+        return {
+            hello: "world",
+            rpm: stepObj.rpm(),
+            speed: stepObj.speed(),
+            acceleration: stepObj.accel(),
+            deceleration: stepObj.decel()
+        }
+    }
 
     //stepper1.rpm(180).ccw().accel(1600).decel(1600).step(2000, function() {
     //
@@ -89,9 +60,8 @@ board.on("ready", function() {
     // make the LED accessible from REPL command line
     this.repl.inject({
         led: led,
-        motor: motor,
-        stepper1: stepper1,
-        stepper2: stepper2
+        stepper: stepper,
+        log: stepperState
     });
 
 });
