@@ -152,6 +152,16 @@ board.on("ready", function() {
         })
     }
 
+    this.stepperStatus = function(){
+        // returns true until all steppers return false for isRunning
+        var completeHalt = true;
+        board.stepperArray.forEach(function(ele,index){
+            console.log(ele.id+" = "+ele.isRunning);
+            completeHalt = ele.isRunning;
+        });
+        return completeHalt;
+    }
+
     var toptailSmoothing = function(rpm){
         // function to account for odd error in stepper motor where RPM & slowdown vals can conflict
         //return(rpm/1.29);
@@ -170,7 +180,8 @@ board.on("ready", function() {
             three: stepper3,
             log: stepperState,
             runstepper: runstepper,
-            startsteppers: this.startsteppers
+            startsteppers: this.startsteppers,
+            stepperstatus: this.stepperStatus
         }
         this.repl.inject(attribs);
         console.log('Arduino connected\n steppers `one` `two ` and `three` available\n ' +
