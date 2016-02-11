@@ -21,12 +21,19 @@ board.on("message", function(event) {
     if(event.class === "Repl"){
         board.REPL = true;
     }
+});
+
+board.on("warn", function(event) {
+    console.log("%s sent a 'warn' message: %s", event.class, event.message);
 })
+
+board.on("fail", function(event) {
+    console.log("%s sent a 'fail' message: %s", event.class, event.message);
+});
 
 board.on("ready", function() {
     // Create an Led on pin 13
 
-    console.log('Arduino connected\n steppers `one` and `three` available\n use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel ');
     var led = new five.Led(13);
     led.off(); // set led off for basic board comms debug enabling
 
@@ -102,9 +109,10 @@ board.on("ready", function() {
         }
     }
 
-    var test = function(){
+    var test = function(stepper){
         stepper.step({ steps:16000, accel: 1600, decel: 1600 }, function() {
             console.log("Done stepping!");
+            console.log(stepperState(stepper));
         });
     }
 
@@ -155,14 +163,20 @@ board.on("ready", function() {
     if (this.REPL === true) {
         console.log("repl available");
         // make the LED accessible from REPL command line
-        this.repl.inject({
+        var attribs = {
             led: led,
             one: stepper1,
+            two: stepper2,
             three: stepper3,
             log: stepperState,
             runstepper: runstepper,
             startsteppers: this.startsteppers
-        });
+        }
+        this.repl.inject(attribs);
+        console.log('Arduino connected\n steppers `one` `two ` and `three` available\n ' +
+            'use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel \n' +
+            'use startsteppers(rpmJSON,step) to run all three motors at same time. rpmJSON takes an object in following\n' +
+            'format `var rpmJSON = {0: 180, 1: 154, 2: 115.8}`. Copy and paste the preceding var into REPL to test');
     } else {
         console.log("no repl support");
     }
