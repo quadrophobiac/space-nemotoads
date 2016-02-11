@@ -12,6 +12,10 @@ var rpmVals = {
 //var rpmVals = {0: 180, 1: 154, 2: 115.8}
 //1.18 1.28 1.41 avg = 1.29
 
+var retrieveGravity = function(){
+    // TODO function from lib that screen and arduino share
+}
+
 app.get('/start', function(req,res){
     res.status(200).send('ok\n');
     console.log('start motors');
