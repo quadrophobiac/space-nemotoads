@@ -1,12 +1,29 @@
-var five = require("johnny-five");
-var board = new five.Board();
+var REPLcheck = process.argv.pop();
+console.log(REPLcheck);
+if(REPLcheck === "repl"){
+    console.log('command line invocation');
+    var five = require("johnny-five");
+    var board = new five.Board({repl: true});
+} else {
+    console.log('cmd argsnot  passed');
+    var five = require("johnny-five");
+    var board = new five.Board({repl: false});
+}
 
 board.on("connect", function(event) {
     console.log("connected");
+});
+
+board.on("message", function(event) {
+    console.log("message = "+event.message+" : "+event.class);
+    if(event.class === "Repl"){
+        board.REPL = true;
+    }
 })
 
 board.on("ready", function() {
     // Create an Led on pin 13
+
     console.log('Arduino connected\n steppers `one` and `three` available\n use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel ');
     var led = new five.Led(13);
     led.off(); // set led off for basic board comms debug enabling
@@ -61,7 +78,7 @@ board.on("ready", function() {
         //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
 
-    this.stepperArray = [stepper1, stepper2, stepper3];
+    this.stepperArray = new Array(stepper1, stepper2, stepper3);
 
     // daisy chaining
     //if you set speed after RPM rpm resets and wont move
@@ -115,12 +132,13 @@ board.on("ready", function() {
     }
 
     this.startsteppers = function(rpm,step,slowdown){
-        this.stepperArray.forEach(function(ele,index){
+        //console.log(this);
+        board.stepperArray.forEach(function(ele,index){
             runstepper(ele,rpm,step,slowdown);
         })
     }
 
-    if (this.repl === true) {
+    if (this.REPL === true) {
         console.log("repl available");
         // make the LED accessible from REPL command line
         this.repl.inject({
@@ -128,7 +146,8 @@ board.on("ready", function() {
             one: stepper1,
             three: stepper3,
             log: stepperState,
-            runstepper: runstepper
+            runstepper: runstepper,
+            startsteppers: this.startsteppers
         });
     } else {
         console.log("no repl support");
