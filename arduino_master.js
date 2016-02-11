@@ -3,21 +3,37 @@ var board = new five.Board();
 
 board.on("ready", function() {
     // Create an Led on pin 13
-    console.log('Arduino connected\n type test() to ensure that motor is spinning\n use run(0,1,2) to calibrate different rpm; steps ; accel | decel ');
+    console.log('Arduino connected\n steppers `one` and `three` available\n use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel ');
     var led = new five.Led(13);
     led.off(); // set led off for basic board comms debug enabling
-    var motor = new five.Motor([3, 8, 11]);
 
     //Arduino syntax
     //Accelstepper1 stepper11(1,10,9); // stepper1 ( , StepPin, DirectionPin )
     //Object.getOwnPropertyNames();
-    var stepper = new five.Stepper({
+    var stepper1 = new five.Stepper({
+        id: "stepper1",
         type: five.Stepper.TYPE.DRIVER,
         stepsPerRev: 400,
         rpm: 180,
         pins: {
             step: 10,
             dir: 9
+        },
+        accel: 400,
+        decel: 400,
+        direction: 1
+        // it is better to pass accel and decel as params to a function as they impact speed otherwise
+        //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
+    });
+
+    var stepper3 = new five.Stepper({
+        id: 'stepper3',
+        type: five.Stepper.TYPE.DRIVER,
+        stepsPerRev: 400,
+        rpm: 180,
+        pins: {
+            step: 2,
+            dir: 1
         },
         accel: 400,
         decel: 400,
@@ -53,14 +69,27 @@ board.on("ready", function() {
     }
 
     var run = function(rpm,step,slowdown){
-        stepper.step(
+        stepper.step( // step is a blocking function, ergo problems for simultaneously running
             {
                 rpm: rpm,
                 steps:step,
                 accel: slowdown,
                 decel: slowdown
             }, function() {
-                console.log("Done stepping!");
+                console.log("Done stepping! send me more data"); // prints after the step
+        });
+    }
+
+    var runstepper = function(stepper,rpm,step,slowdown){
+        console.log("starting stepper "+(stepper.id+1));
+        stepper.step( // step is a blocking function, ergo problems for simultaneously running
+            {
+                rpm: rpm,
+                steps:step,
+                accel: slowdown,
+                decel: slowdown
+            }, function() {
+                console.log((stepper.id+1)+" done stepping! send me more data"); // prints after the step
             });
     }
 
@@ -81,18 +110,19 @@ board.on("ready", function() {
     // make the LED accessible from REPL command line
     this.repl.inject({
         led: led,
-        stepper: stepper,
+        one: stepper1,
+        three: stepper3,
         log: stepperState,
-        test: test,
-        run: run
+        runstepper: runstepper,
     });
 
 });
 
 
 
-//board.on('data', function(freq, led){
-//
-//    led.blink(freq);
-//
-//});
+board.on('data', function(freq, led){
+
+    console.log("data event trigger");
+    led.blink(freq);
+
+});
