@@ -11,9 +11,9 @@ var jsoncsv = require('json-2-csv');
 
 
 var queries = {
-    earthSized: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc&where=pl_rade%3C2.0&format=csv',
-    allKOIs: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&select=kepler_name,koi_disposition,koi_vet_stat,koi_vet_date&format=csv',
-    allExoplanets: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc&format=csv'
+    earthSized: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&where=pl_rade%3C2.0&format=csv',
+    allKOIs: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&select=kepler_name,koi_disposition,koi_vet_stat,koi_datalink_dvs,koi_vet_date&format=csv',
+    allExoplanets: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&format=csv'
 }
 
 var queriesArr = ['earthSized', 'allKOIs', 'allExoplanets'];
@@ -50,11 +50,13 @@ var CSVtoObject = function(string){
         var i1 = headers["1"].toString();
         var i2 = headers["2"].toString();
         var i3 = headers["3"].toString();
+        var i4 = headers["4"].toString();
         var variety = {};
         variety[i0] = ele["0"];
         variety[i1] = ele["1"];
         variety[i2] = ele["2"];
         variety[i3] = ele["3"];
+        variety[i4] = ele["4"];
 
         toCSV.push(variety);
     });
@@ -109,17 +111,30 @@ var datacompare = function(query, apiJSON,lastStoredData){
 var filemgmt = function(query, apiData,tmpJSONPath,csvPath,jsonPath){
     var json = CSVtoObject(apiData);
     json.sort(function (c,d) {
+        if (c.pl_disc == d.pl_disc) {
+            //console.log("equal years");
+            if(Date.parse(c.rowupdate) > Date.parse(d.rowupdate)){
+                //console.log("years disc: "+ c.pl_disc+" more recently updated than years disc: "+ d.pl_disc);
+                return 1;
+            }else if (Date.parse(d.rowupdate) > Date.parse(c.rowupdate)){
+                //console.log("years disc: "+ d.pl_disc+" more recently updated than years disc: "+ c.pl_disc);
+                return -1;
+            }
+        }
         if (c.pl_disc > d.pl_disc) {
             return 1;
         }
         if (c.pl_disc < d.pl_disc) {
             return -1;
         }
+
         // a must be equal to b
         return 0;
     });
 
     if(datacompare(query,json,tmpJSONPath)){
+
+        // TODO, function to transform data in place to have a gravity reading built into data
 
         fs.writeFileSync(jsonPath, JSON.stringify(json,null,4), 'utf8');
         fs.writeFileSync(tmpJSONPath, JSON.stringify(json,null,4), 'utf8');
@@ -145,8 +160,8 @@ var saveCSV = function(query, callback){
         .on('success', function(result, response){
             console.log("saving "+query+" API csv to "+tmpCSVPath);
             fs.writeFileSync(tmpCSVPath, result, 'utf8'); // store CSV from which JSON objs derived
-            //filemgmt(query, result,tmpJSONPath, csvPath,jsonPath);
-            callback(query, result,tmpJSONPath, csvPath,jsonPath);
+            filemgmt(query, result,tmpJSONPath, csvPath,jsonPath);
+            //callback(query, result,tmpJSONPath, csvPath,jsonPath);
         })
         .on('complete', function(result, response){
             console.log("completed call");

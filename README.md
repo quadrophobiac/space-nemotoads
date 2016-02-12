@@ -277,3 +277,4 @@ package versions for freezing on merge for node-2-arduino branch
       "vinyl-source-stream": "^1.1.0",
       "winston": "^2.1.1"
     }
+
