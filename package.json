@@ -19,13 +19,14 @@
     "gulp-browserify": "^0.5.1",
     "gulp-nodemon": "^1.0.4",
     "gulp-open": "^1.0.0",
-    "httpdispatcher": "^0.4.0",
+    "jquery": "^2.2.0",
     "json-2-csv": "^2.0.10",
     "mocha": "^2.3.4",
     "request": "^2.69.0",
     "restler": "^3.4.0",
     "sinon": "^1.17.2",
     "supertest": "^1.1.0",
+    "underscore": "1.8.3",
     "vinyl-source-stream": "^1.1.0",
     "winston": "^2.1.1"
   }
