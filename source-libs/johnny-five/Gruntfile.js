@@ -50,7 +50,7 @@ module.exports = function(grunt) {
       files: {
         src: [
           "Gruntfile.js",
-          "lib/**/!(johnny-five)*.js",
+          "source-libs/**/!(johnny-five)*.js",
           "test/**/*.js",
           "eg/**/*.js",
           "wip/autobot-2.js"
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
     jscs: {
       src: [
         "Gruntfile.js",
-        "lib/**/!(johnny-five)*.js",
+        "source-libs/**/!(johnny-five)*.js",
         "test/**/*.js",
         "eg/**/*.js",
         "util/**/*.js"
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
       }
     },
     jsbeautifier: {
-      files: ["lib/**/*.js", "eg/**/*.js", "test/**/*.js"],
+      files: ["source-libs/**/*.js", "eg/**/*.js", "test/**/*.js"],
       options: {
         js: {
           braceStyle: "collapse",
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
       src: {
         files: [
           "Gruntfile.js",
-          "lib/**/!(johnny-five)*.js",
+          "source-libs/**/!(johnny-five)*.js",
           "test/**/*.js",
           "eg/**/*.js"
         ],
