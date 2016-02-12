@@ -1,20 +1,5 @@
 the repo for the pi and api project
 
-SSH into Raspberry Pi from afar
-- may not be worth doing at all because it depends on the gallery
-:: dependencies =
-   networking knowledge of gallery
-   what sort of connection to internet will be available for the install (can it go over ethernet)
-
-Hosting a visualisation
-
-:: doing so over a local network so that visitors can connect to it is bollox for the same reason
-
-how realistic / easy / feasible do you think it would be to have something like a QR code that would direct people
-(via their smart phones) to a GUI that would give them the information we've distilled out of the API?
-
-requires me querying
-
 ### establishing Pi
 
 SSH GOTCHA
