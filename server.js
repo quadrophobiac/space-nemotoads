@@ -51,6 +51,12 @@ var seedArr = []
 // TODO fill seedarr with 3 numbers
 
 app.get('/selected_planets', function(req,res){
+    var recentPlanets = {};
+    for(var i = 0; i < 3; i++) {
+        var aPlanet = planets.pop();
+        recentPlanets[i] = aPlanet;
+    }
+    res.json(recentPlanets);
     // TODO use seed arr to generate an endpoint containing only three randomly selected planets
     // TODO use this as the endpoint that the backbone app consumes
 
