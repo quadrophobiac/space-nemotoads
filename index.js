@@ -168,6 +168,10 @@ var saveCSV = function(query, callback){
         });
 }
 
+var addGravityEstimates = function(query){
+    console.log(query);
+}
+
 queriesArr.forEach(function(ele){
     saveCSV(ele, filemgmt);
 
