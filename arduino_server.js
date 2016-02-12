@@ -13,7 +13,7 @@ var rpmVals = {
 //1.18 1.28 1.41 avg = 1.29
 
 var retrieveGravity = function(){
-    // TODO function from source-libs that screen and arduino share
+    // TODO function from lib that screen and arduino share
 }
 
 app.get('/start', function(req,res){
