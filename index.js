@@ -4,11 +4,6 @@ var restclient = require('restler');
 var fs = require('fs');
 var CSV = require('csv-string');
 var jsoncsv = require('json-2-csv');
-//var CaltechPoll= require('./caltech-poll.js');
-//var exoapi = new CaltechPoll();
-
-//exoapi.saveCSV();
-
 
 var queries = {
     earthSized: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&where=pl_rade%3C2.0&format=csv',
