@@ -8,26 +8,27 @@ var browserify 	= require('gulp-browserify');
 var source = require('vinyl-source-stream');
 var request = require('request');
 
-//gulp.task('default', ['browser-sync'], function () {
-//}); // browsersync wont play nice with linux
+gulp.task('default', ['browser-sync'], function () {
+}); // browsersync wont play nice with linux
+
+gulp.task('browser-sync', ['nodemon'], function() {
+	browserSync.init(null, {
+			proxy: "http://localhost:5000",
+        //files: ["client/data/*.*"],
+		files: ["fixtures/*.json"],
+        //browser: "firefox",
+		browser: process.platform === 'darwin' ? 'firefox' : 'chromium',
+        port: 7000,
+	});
+}); // browsersync wont play nice with linux
+
+//gulp.task('default', ['uri'], function () {
+//});
 //
-//gulp.task('browser-sync', ['nodemon'], function() {
-//	browserSync.init(null, {
-//			proxy: "http://localhost:5000",
-//        //files: ["client/data/*.*"],
-//		files: ["fixtures/*.json"],
-//        browser: "firefox",
-//        port: 7000,
-//	});
-//}); // browsersync wont play nice with linux
-
-gulp.task('default', ['uri'], function () {
-});
-
-gulp.task('uri', ['nodemon'], function(){
-	gulp.src('')
-		.pipe(open({uri: 'http://localhost:5000/'}));
-});
+//gulp.task('uri', ['nodemon'], function(){
+//	gulp.src('')
+//		.pipe(open({uri: 'http://localhost:5000/'}));
+//});
 
 gulp.task('nodemon', function (cb) {
 
@@ -51,13 +52,17 @@ gulp.task('nodemon', function (cb) {
 });
 
 var ping = function(){
+	console.log("pinging");
 	request('http://localhost:5000/planets',reqcb);
 }
 
 var reqcb = function(error, response, body){
+	console.log("requesting");
 	if (!error && response.statusCode == 200) {
+		console.log("success");
 		//console.log(body); // Show the HTML for the Modulus homepage.
 	} else {
-		console.log("astray");
+		console.log("fail");
+		console.log(error.stack);
 	}
 }
