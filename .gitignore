@@ -1,8 +1,6 @@
-node_modules/
-logs/server.log
-fixtures
-compare
-tmp
 data_tracking.log
 project_log.txt
+.idea/workspace.xml
+node_modules/
+logs/server.log
 client/bundle.js
