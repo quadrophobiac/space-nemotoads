@@ -7,21 +7,9 @@ SSH GOTCHA
 the first time you SSH the key is stored for that IP address in ~/.ssh/known_hosts
 that file might have to be managed (ie entries deleted) to ensure that SSH can still happen
 
-upgrading pi
-`# http://tech.tiefpunkt.com/2015/06/headless-raspberrypi-installation-with-raspbian-jessie/`
-sudo raspi-config # expand storage and change password
-sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
-sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list.d/*
-sudo apt-get update
-sudo apt-get -y dist-upgrade
 
 ### getting node onto a pi
-~~echo "deb http://node-arm.herokuapp.com/ /" | sudo tee --append /etc/apt/sources.list~~  
-~~sudo apt-get update~~  
-~~sudo apt-get install -y --force-yes node libusb-1.0-0-dev~~  
-~~echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile~~  
 
-~~*HT* to http://www.webondevices.com/install-node-js-on-a-raspberry-pi-and-run-javascript/~~
 
 Using the presupplied HDMI Screen Image requires different approach because of prebundled distro  
 npm needs to be a higher version than one supplied with above process  
