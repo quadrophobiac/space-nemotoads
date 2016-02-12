@@ -83,6 +83,8 @@ plug in your arduino
 this repo has made changes to the johnny-five code lib/stepper.js  
 better resolution may be required - see here https://docs.npmjs.com/cli/link
 
+NB - johnny-five CANNOT be globally installed as a result
+
 ### Arduino Johnny Five Set Up
 `Upload File > Examples > Firmata > Standard Firmata to the Arduino Board for motor`
 Upload Configurable Firmata for Stepper - instructions [here](https://github.com/firmata/ConfigurableFirmata)
@@ -173,7 +175,7 @@ once every X minutes the rotation will stop for X minutes and then restart.
 
 ___
 
-package versions for freezing on merge for this branch
+package versions for freezing on merge for node-2-arduino branch
 
 {
     "body-parser": "^1.14.2",
@@ -181,7 +183,7 @@ package versions for freezing on merge for this branch
     "chai-http": "^1.0.0",
     "csv-string": "^2.3.0",
     "express": "^4.13.3",
-    "johnny-five": "^0.9.16",
+    "johnny-five": "0.9.16",
     "json-2-csv": "^2.0.10",
     "mocha": "^2.3.4",
     "request": "^2.67.0",
@@ -189,3 +191,23 @@ package versions for freezing on merge for this branch
     "sinon": "^1.17.2",
     "supertest": "^1.1.0"
   }
+  package versions for freezing on merge for pi-client-server-gulp branch
+  "devDependencies": {
+      "backbone": "^1.2.3",
+      "browser-sync": "^1.3.3",
+      "chai": "^3.4.1",
+      "csv-string": "^2.3.0",
+      "express": "^4.13.3",
+      "gulp": "^3.8.7",
+      "gulp-nodemon": "^1.0.4",
+      "httpdispatcher": "^0.4.0",
+      "jquery": "^2.2.0",
+      "json-2-csv": "^2.0.10",
+      "mocha": "^2.3.4",
+      "request": "^2.67.0",
+      "restler": "^3.4.0",
+      "sinon": "^1.17.2",
+      "supertest": "^1.1.0",
+      "vinyl-source-stream": "^1.1.0",
+      "winston": "^2.1.1"
+    }
