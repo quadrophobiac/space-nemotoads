@@ -66,5 +66,7 @@ var reqcb = function(error, response, body){
 	} else {
 		console.log("fail");
 		console.log(error.stack);
+		console.log(response.statusCode);
+		console.log(body);
 	}
 }
