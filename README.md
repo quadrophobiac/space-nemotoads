@@ -13,6 +13,10 @@ sudo apt-get dist-upgrade
 sudo reboot
 sudo apt-get update
 sudo apt-get install -t wheezy $BROWSER_OF_CHOICE
+# changes default browser if needed
+echo $DESKTOP_SESSION
+if gnome = update-alternatives --config gnome-www-browser 
+else - check here https://wiki.debian.org/HOWTO/DefaultWebBrowser
 ```
 
 ## getting node onto a pi
