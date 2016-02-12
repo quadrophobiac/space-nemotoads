@@ -11,7 +11,7 @@ var PlanetsCollection = Backbone.Collection.extend({
 
     model: Planet,
     comparator: 'rowupdate',
-    url: '/planets'
+    url: '/selected_planets'
 
     // todo - currently the manner in which this collection coexists with view results in incorrect sorting
     //url:'data/earthSized.json',
