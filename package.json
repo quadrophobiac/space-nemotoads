@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "preinstall": "npm install lib/johnny-five"
-    "start": "browserify client/app.js -o client/bundle.js & node server",
+    "preinstall": "npm install lib/johnny-five",
+    "start": "browserify client/app.js -o client/bundle.js & node server"
   },
   "author": "sf",
   "license": "ISC",
