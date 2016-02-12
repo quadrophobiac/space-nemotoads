@@ -3,11 +3,11 @@
  */
 var express = require('express');
 var app = express();
-var assignedPort = 3000;
+var assignedPort = 5000;
 var fs = require('fs');
 var winston = require('winston');
-// winston vs morgan = http://devgigs.blogspot.ie/2014/01/mastering-nodejs-logging.html || https://www.loggly.com/ultimate-guide/node-logging-basics/
-
+//var planets = require(__dirname+"/client/data/earthSized.json"); // new location
+var planets = require(__dirname+"/fixtures/earthSized.json"); // old location
 
 var logger = new (winston.Logger)({
     transports: [
@@ -34,10 +34,27 @@ app.get('/index.html', function(req,res){
 });
 
 app.get('/planets', function(req,res){
-    var planets = require(__dirname+"/fixtures/earthSized.json");
-    //TODO - determine if this method of serving JSON optimal cref https://www.codementor.io/nodejs/tutorial/how-to-use-json-files-in-node-js
-    res.json(planets);
+    // publish json object to end point
+    console.log(req.headers);
+    //console.log(Object.getOwnPropertyNames(req));
+    console.log("PLANETS");
+    res.status(200).json(planets);
 });
+
+app.get('/planets/:planet_id', function(req, res) {
+        // make arrayindexed elements of planets json object available over API
+        //res.send(allplanets[req.params.planet_id]);
+        res.json(planets[req.params.planet_id]);
+});
+
+var seedArr = []
+// TODO fill seedarr with 3 numbers
+
+app.get('/selected_planets', function(req,res){
+    // TODO use seed arr to generate an endpoint containing only three randomly selected planets
+    // TODO use this as the endpoint that the backbone app consumes
+
+})
 
 app.get('/logs', function(req,res){
     //var logs = fs.readFileSync(__dirname+"/logs/server.log", 'utf8');

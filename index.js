@@ -134,6 +134,8 @@ var filemgmt = function(query, apiData,tmpJSONPath,csvPath,jsonPath){
 
     if(datacompare(query,json,tmpJSONPath)){
 
+        // TODO, function to transform data in place to have a gravity reading built into data
+
         fs.writeFileSync(jsonPath, JSON.stringify(json,null,4), 'utf8');
         fs.writeFileSync(tmpJSONPath, JSON.stringify(json,null,4), 'utf8');
         //console.log("********************************\n"+typeof jsoncsv.json2csv(json, json2csvCallback));

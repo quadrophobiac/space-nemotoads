@@ -1,0 +1,59 @@
+/*styling*/
+
+body {
+    background-color: #8c8c8c;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    text-shadow:1px 1px 1px rgba(0,0,0,0.004) !important;
+}
+
+/*fonts*/
+
+@font-face {
+    font-family: 'Crass';
+    font-style: normal;
+    src: url("fonts/Crass.ttf");
+}
+@font-face {
+    font-family: 'octin';
+    font-style: normal;
+    src: url("fonts/octin_stencil_rg.ttf");
+}
+@font-face {
+    font-family: 'AeromaticsRegular';
+    font-style: normal;
+    src: url("fonts/Aero_Matics_Stencil_Regular.ttf");
+}
+@font-face {
+    font-family: 'AeromaticsBold';
+    font-style: normal;
+    src: url("fonts/Aero_Matics_Stencil_Bold.ttf");
+}
+@font-face {
+    font-family: 'USAAF';
+    font-style: normal;
+    src: url("fonts/USAAF_Stencil.ttf");
+}
+@font-face {
+    font-family: 'USAAF_SERIAL';
+    font-style: normal;
+    src: url("fonts/USAAF_Serial_Stencil.ttf");
+}
+
+/*overcoding*/
+
+.table th, .table td {
+    border-top: none !important;
+    border-left: none !important;
+
+}
+.fixed-table-container {
+    border:0px;
+}
+.table th {
+    border-bottom: none !important;
+}
+.table:last-child{
+    border:none !important;
+}
+
