@@ -8,6 +8,8 @@ var nodemon = require('gulp-nodemon');
 var source = require('vinyl-source-stream');
 var request = require('request');
 
+var CROSS_SERVER_REQUEST_DELAY = 5000;
+
 gulp.task('default', ['browser-sync'], function () {
 	setTimeout(function defaultpause() {ping();},500);
 }); // browsersync wont play nice with linux
@@ -53,7 +55,7 @@ gulp.task('nodemon', function (cb) {
 	}).on('restart', function () {
 		setTimeout(function () {
 			ping();
-		}, 500);
+		}, CROSS_SERVER_REQUEST_DELAY);
 	});
 });
 
