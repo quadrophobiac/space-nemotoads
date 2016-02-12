@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var open = require('gulp-open');
 var browserSync = require('browser-sync');
 var nodemon = require('gulp-nodemon');
-var browserify 	= require('gulp-browserify');
+//var browserify 	= require('gulp-browserify');
 var source = require('vinyl-source-stream');
 var request = require('request');
 
@@ -22,6 +22,8 @@ gulp.task('browser-sync', ['nodemon'], function() {
 	});
 }); // browsersync wont play nice with linux
 
+
+// graceful fallback
 //gulp.task('default', ['uri'], function () {
 //});
 //
