@@ -18,6 +18,7 @@
     "gulp": "^3.8.7",
     "gulp-browserify": "^0.5.1",
     "gulp-nodemon": "^1.0.4",
+    "gulp-open": "^1.0.0",
     "httpdispatcher": "^0.4.0",
     "json-2-csv": "^2.0.10",
     "mocha": "^2.3.4",
