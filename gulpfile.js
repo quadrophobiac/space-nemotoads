@@ -62,11 +62,14 @@ var reqcb = function(error, response, body){
 	console.log("requesting");
 	if (!error && response.statusCode == 200) {
 		console.log("success");
+		if(response){console.log(response.statusCode);}
+		if(body){console.log(body);}
 		//console.log(body); // Show the HTML for the Modulus homepage.
 	} else {
 		console.log("fail");
 		console.log(error.stack);
-		console.log(response.statusCode);
-		console.log(body);
+		if(response){console.log(response.statusCode);}
+		if(body){console.log(body);}
+		//console.log(body);
 	}
 }
