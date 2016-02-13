@@ -8,33 +8,28 @@ var nodemon = require('gulp-nodemon');
 var source = require('vinyl-source-stream');
 var request = require('request');
 
-var CROSS_SERVER_REQUEST_DELAY = 5000;
+var CROSS_SERVER_REQUEST_DELAY = 500;
 
 gulp.task('default', ['browser-sync'], function () {
-	setTimeout(function defaultpause() {ping();},500);
+	//setTimeout(function defaultpause() {ping();},500);
 }); // browsersync wont play nice with linux
 
 gulp.task('browser-sync', ['nodemon'], function() {
 	console.log('booting browser sync');
-	browserSync.init(null, {
-			proxy: "http://localhost:5000",
-        //files: ["client/data/*.*"],
+
+	browserSync({
+
+		// informs browser-sync to proxy our expressjs app which would run at the following location
+		proxy: "http://localhost:5000",
 		files: ["fixtures/*.json"],
-        //browser: "firefox",
-		browser: process.platform === 'darwin' ? 'firefox' : 'chromium',
-        port: 7000,
+		// informs browser-sync to use the following port for the proxied app
+		// notice that the default port is 3000, which would clash with our expressjs
+		port: 7000,
+
+		// open the proxied app in chrome
+		browser: "firefox"
 	});
 }); // browsersync wont play nice with linux
-
-
-// graceful fallback
-//gulp.task('default', ['uri'], function () {
-//});
-//
-//gulp.task('uri', ['nodemon'], function(){
-//	gulp.src('')
-//		.pipe(open({uri: 'http://localhost:5000/'}));
-//});
 
 gulp.task('nodemon', function (cb) {
 
@@ -42,7 +37,7 @@ gulp.task('nodemon', function (cb) {
 
 	return nodemon({
 		script: 'server.js'
-		, ext: 'js html json'
+		, ext: 'js html'
 	}).on('start', function () {
 		// to avoid nodemon being started multiple times
 		// thanks @matthisk
@@ -53,8 +48,11 @@ gulp.task('nodemon', function (cb) {
 			started = true;
 		}
 	}).on('restart', function () {
-		setTimeout(function () {
+		setTimeout(function reload() {
 			ping();
+			browserSync.reload({
+				stream: false
+			});
 		}, CROSS_SERVER_REQUEST_DELAY);
 	});
 });
