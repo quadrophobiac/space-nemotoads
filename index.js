@@ -11,7 +11,7 @@ var queries = {
     allExoplanets: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&format=csv'
 }
 
-var queriesArr = ['earthSized', 'allKOIs', 'allExoplanets'];
+var queriesArr = ['earthSized'];
 
 var headers;
 
@@ -99,6 +99,7 @@ var datacompare = function(query, apiJSON,lastStoredData){
     fs.appendFileSync(logfile, logdata, 'utf8');
     console.log("comparison of "+query+" data: last recorded = "+tmpJSON.length+" versus current data = "+apiJSON.length);
     console.log( (apiJSON.length > tmpJSON.length) );
+    newData = true;
     if(newData){difflog(query,tmpJSON, apiJSON)}
     return newData;
 }
