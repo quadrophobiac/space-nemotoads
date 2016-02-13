@@ -8,6 +8,7 @@ var fs = require('fs');
 var winston = require('winston');
 //var planets = require(__dirname+"/client/data/earthSized.json"); // new location
 var planets = require(__dirname+"/fixtures/earthSized.json"); // old location
+var topthree = require('./lib/uniform');
 
 var logger = new (winston.Logger)({
     transports: [
@@ -53,7 +54,56 @@ var seedArr = []
 app.get('/selected_planets', function(req,res){
     // TODO use seed arr to generate an endpoint containing only three randomly selected planets
     // TODO use this as the endpoint that the backbone app consumes
-
+    res.status(200).json(topthree.recent());
+    //planets.sort(function (c,d) {
+    //    if (c.pl_disc == d.pl_disc) {
+    //        //console.log("equal years");
+    //        if(Date.parse(c.rowupdate) > Date.parse(d.rowupdate)){
+    //            //console.log("years disc: "+ c.pl_disc+" more recently updated than years disc: "+ d.pl_disc);
+    //            return 1;
+    //        }else if (Date.parse(d.rowupdate) > Date.parse(c.rowupdate)){
+    //            //console.log("years disc: "+ d.pl_disc+" more recently updated than years disc: "+ c.pl_disc);
+    //            return -1;
+    //        }
+    //    }
+    //    if (c.pl_disc > d.pl_disc) {
+    //        return 1;
+    //    }
+    //    if (c.pl_disc < d.pl_disc) {
+    //        return -1;
+    //    }
+    //
+    //    // a must be equal to b
+    //    return 0;
+    //});
+    //console.log(planets.length);
+    //console.log(planets[planets.length-1]);
+    //console.log(planets.slice(planets.length-3));
+    //var recent = planets.slice(planets.length-3);
+    //res.status(200).json(recent);
+    //res.status(200).json(
+    //    planets.sort(function (c,d) {
+    //            if (c.pl_disc == d.pl_disc) {
+    //                //console.log("equal years");
+    //                if(Date.parse(c.rowupdate) > Date.parse(d.rowupdate)){
+    //                    //console.log("years disc: "+ c.pl_disc+" more recently updated than years disc: "+ d.pl_disc);
+    //                    return 1;
+    //                }else if (Date.parse(d.rowupdate) > Date.parse(c.rowupdate)){
+    //                    //console.log("years disc: "+ d.pl_disc+" more recently updated than years disc: "+ c.pl_disc);
+    //                    return -1;
+    //                }
+    //            }
+    //            if (c.pl_disc > d.pl_disc) {
+    //                return 1;
+    //            }
+    //            if (c.pl_disc < d.pl_disc) {
+    //                return -1;
+    //            }
+    //
+    //            // a must be equal to b
+    //            return 0;
+    //        }
+    //    ))
 })
 
 app.get('/logs', function(req,res){
