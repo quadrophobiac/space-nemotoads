@@ -128,7 +128,7 @@ var server = app.listen(assignedPort, function(){
             if(!arduino.steppersRunning()){
                 console.log("starting cycle @");
                 console.log(new Date());
-                //arduino.startsteppers(rpmvals,steps);
+                arduino.startsteppers(rpmvals,steps);
             } // end check if still running
         }); // end wait
     }); // end loop
