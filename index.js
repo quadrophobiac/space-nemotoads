@@ -7,8 +7,6 @@ var jsoncsv = require('json-2-csv');
 
 var queries = {
     earthSized: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&where=pl_rade%3C2.0&format=csv',
-    allKOIs: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&select=kepler_name,koi_disposition,koi_vet_stat,koi_datalink_dvs,koi_vet_date&format=csv',
-    allExoplanets: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&format=csv'
 }
 
 var queriesArr = ['earthSized'];
