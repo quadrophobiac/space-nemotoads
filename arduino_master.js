@@ -23,6 +23,9 @@ board.on("fail", function(event) {
 
 board.on("ready", function() {
     // Create an Led on pin 13
+
+    this.led = new five.Led(13);
+
     var stepper1 = new five.Stepper({
 
         type: five.Stepper.TYPE.DRIVER,
