@@ -1,4 +1,3 @@
-//usage from command line = node arduino_master.js repl
 var five = require("johnny-five");
 var board = new five.Board({repl: false});
 
