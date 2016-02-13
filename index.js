@@ -196,7 +196,9 @@ var calcGravity = function(radius,mass) {
         var g = gravity.surfaceGravity(mass, radius);
         if(g < 1){
             return "1";
-        } else{
+        } else if (g > 4) {
+            return false;
+        } else {
             return g;
         }
     }

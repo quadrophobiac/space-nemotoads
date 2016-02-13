@@ -32,20 +32,12 @@
         "gravity": "2.39"
     },
     {
-        "pl_name": "Kepler-20 f",
-        "pl_rade": "1.030",
-        "pl_bmasse": "14.30000",
+        "pl_name": "KOI-55 c",
+        "pl_rade": "0.867",
+        "pl_bmasse": "0.65500",
         "pl_disc": "2011",
         "rowupdate": "2014-05-14",
-        "gravity": "13.49"
-    },
-    {
-        "pl_name": "Kepler-23 b",
-        "pl_rade": "1.900",
-        "pl_bmasse": "254.30000",
-        "pl_disc": "2011",
-        "rowupdate": "2014-05-14",
-        "gravity": "70.48"
+        "gravity": "1"
     },
     {
         "pl_name": "KOI-55 b",
@@ -56,76 +48,12 @@
         "gravity": "1"
     },
     {
-        "pl_name": "KOI-55 c",
-        "pl_rade": "0.867",
-        "pl_bmasse": "0.65500",
-        "pl_disc": "2011",
-        "rowupdate": "2014-05-14",
-        "gravity": "1"
-    },
-    {
-        "pl_name": "Kepler-20 e",
-        "pl_rade": "0.868",
-        "pl_bmasse": "3.08000",
-        "pl_disc": "2011",
-        "rowupdate": "2014-05-14",
-        "gravity": "4.09"
-    },
-    {
         "pl_name": "Kepler-10 b",
         "pl_rade": "1.481",
         "pl_bmasse": "4.60853",
         "pl_disc": "2011",
         "rowupdate": "2015-10-15",
         "gravity": "2.10"
-    },
-    {
-        "pl_name": "Kepler-59 b",
-        "pl_rade": "1.100",
-        "pl_bmasse": "651.52000",
-        "pl_disc": "2012",
-        "rowupdate": "2014-05-14",
-        "gravity": "538.71"
-    },
-    {
-        "pl_name": "Kepler-52 c",
-        "pl_rade": "1.840",
-        "pl_bmasse": "3308.41000",
-        "pl_disc": "2012",
-        "rowupdate": "2014-05-14",
-        "gravity": "977.67"
-    },
-    {
-        "pl_name": "Kepler-59 c",
-        "pl_rade": "1.980",
-        "pl_bmasse": "435.41000",
-        "pl_disc": "2012",
-        "rowupdate": "2014-05-14",
-        "gravity": "111.12"
-    },
-    {
-        "pl_name": "Kepler-57 c",
-        "pl_rade": "1.550",
-        "pl_bmasse": "2208.83000",
-        "pl_disc": "2012",
-        "rowupdate": "2014-05-14",
-        "gravity": "919.83"
-    },
-    {
-        "pl_name": "Kepler-21 b",
-        "pl_rade": "1.635",
-        "pl_bmasse": "10.40000",
-        "pl_disc": "2012",
-        "rowupdate": "2014-05-14",
-        "gravity": "3.89"
-    },
-    {
-        "pl_name": "Kepler-54 c",
-        "pl_rade": "1.230",
-        "pl_bmasse": "117.59000",
-        "pl_disc": "2012",
-        "rowupdate": "2014-05-14",
-        "gravity": "77.76"
     },
     {
         "pl_name": "Kepler-36 b",
@@ -136,44 +64,20 @@
         "gravity": "2.02"
     },
     {
+        "pl_name": "Kepler-21 b",
+        "pl_rade": "1.635",
+        "pl_bmasse": "10.40000",
+        "pl_disc": "2012",
+        "rowupdate": "2014-05-14",
+        "gravity": "3.89"
+    },
+    {
         "pl_name": "Kepler-78 b",
         "pl_rade": "1.173",
         "pl_bmasse": "1.86000",
         "pl_disc": "2013",
         "rowupdate": "2014-05-14",
         "gravity": "1.35"
-    },
-    {
-        "pl_name": "Kepler-128 c",
-        "pl_rade": "1.130",
-        "pl_bmasse": "33.30000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "26.09"
-    },
-    {
-        "pl_name": "Kepler-114 c",
-        "pl_rade": "1.600",
-        "pl_bmasse": "2.80000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "1.09"
-    },
-    {
-        "pl_name": "Kepler-68 c",
-        "pl_rade": "0.953",
-        "pl_bmasse": "4.80000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "5.29"
-    },
-    {
-        "pl_name": "Kepler-62 e",
-        "pl_rade": "1.610",
-        "pl_bmasse": "36.00000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "13.90"
     },
     {
         "pl_name": "KOI-94 b",
@@ -184,92 +88,20 @@
         "gravity": "3.59"
     },
     {
+        "pl_name": "Kepler-114 c",
+        "pl_rade": "1.600",
+        "pl_bmasse": "2.80000",
+        "pl_disc": "2013",
+        "rowupdate": "2014-05-14",
+        "gravity": "1.09"
+    },
+    {
         "pl_name": "Kepler-62 d",
         "pl_rade": "1.950",
         "pl_bmasse": "14.00000",
         "pl_disc": "2013",
         "rowupdate": "2014-05-14",
         "gravity": "3.68"
-    },
-    {
-        "pl_name": "Kepler-128 b",
-        "pl_rade": "1.130",
-        "pl_bmasse": "30.70000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "24.05"
-    },
-    {
-        "pl_name": "Kepler-62 c",
-        "pl_rade": "0.540",
-        "pl_bmasse": "4.00000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "13.72"
-    },
-    {
-        "pl_name": "Kepler-62 b",
-        "pl_rade": "1.310",
-        "pl_bmasse": "9.00000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "5.25"
-    },
-    {
-        "pl_name": "Kepler-62 f",
-        "pl_rade": "1.410",
-        "pl_bmasse": "35.00000",
-        "pl_disc": "2013",
-        "rowupdate": "2014-05-14",
-        "gravity": "17.61"
-    },
-    {
-        "pl_name": "Kepler-102 f",
-        "pl_rade": "0.880",
-        "pl_bmasse": "0.62000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "1"
-    },
-    {
-        "pl_name": "Kepler-131 c",
-        "pl_rade": "0.840",
-        "pl_bmasse": "8.25000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "11.70"
-    },
-    {
-        "pl_name": "Kepler-408 b",
-        "pl_rade": "0.820",
-        "pl_bmasse": "0.48000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "1"
-    },
-    {
-        "pl_name": "Kepler-113 b",
-        "pl_rade": "1.820",
-        "pl_bmasse": "11.70000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "3.53"
-    },
-    {
-        "pl_name": "Kepler-407 b",
-        "pl_rade": "1.070",
-        "pl_bmasse": "0.06000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "1"
-    },
-    {
-        "pl_name": "Kepler-406 b",
-        "pl_rade": "1.430",
-        "pl_bmasse": "6.35000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "3.11"
     },
     {
         "pl_name": "Kepler-102 d",
@@ -280,36 +112,12 @@
         "gravity": "2.73"
     },
     {
-        "pl_name": "Kepler-106 b",
-        "pl_rade": "0.820",
-        "pl_bmasse": "0.15000",
+        "pl_name": "Kepler-102 f",
+        "pl_rade": "0.880",
+        "pl_bmasse": "0.62000",
         "pl_disc": "2014",
         "rowupdate": "2014-05-14",
         "gravity": "1"
-    },
-    {
-        "pl_name": "Kepler-409 b",
-        "pl_rade": "1.190",
-        "pl_bmasse": "2.69000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "1.90"
-    },
-    {
-        "pl_name": "Kepler-106 d",
-        "pl_rade": "0.950",
-        "pl_bmasse": "8.10000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "8.98"
-    },
-    {
-        "pl_name": "Kepler-406 c",
-        "pl_rade": "0.850",
-        "pl_bmasse": "2.71000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-14",
-        "gravity": "3.75"
     },
     {
         "pl_name": "Kepler-97 b",
@@ -320,12 +128,28 @@
         "gravity": "1.60"
     },
     {
-        "pl_name": "Kepler-98 b",
-        "pl_rade": "1.990",
-        "pl_bmasse": "3.55000",
+        "pl_name": "Kepler-113 b",
+        "pl_rade": "1.820",
+        "pl_bmasse": "11.70000",
         "pl_disc": "2014",
         "rowupdate": "2014-05-14",
-        "gravity": "1"
+        "gravity": "3.53"
+    },
+    {
+        "pl_name": "Kepler-409 b",
+        "pl_rade": "1.190",
+        "pl_bmasse": "2.69000",
+        "pl_disc": "2014",
+        "rowupdate": "2014-05-14",
+        "gravity": "1.90"
+    },
+    {
+        "pl_name": "Kepler-406 b",
+        "pl_rade": "1.430",
+        "pl_bmasse": "6.35000",
+        "pl_disc": "2014",
+        "rowupdate": "2014-05-14",
+        "gravity": "3.11"
     },
     {
         "pl_name": "Kepler-99 b",
@@ -336,6 +160,30 @@
         "gravity": "2.81"
     },
     {
+        "pl_name": "Kepler-407 b",
+        "pl_rade": "1.070",
+        "pl_bmasse": "0.06000",
+        "pl_disc": "2014",
+        "rowupdate": "2014-05-14",
+        "gravity": "1"
+    },
+    {
+        "pl_name": "Kepler-98 b",
+        "pl_rade": "1.990",
+        "pl_bmasse": "3.55000",
+        "pl_disc": "2014",
+        "rowupdate": "2014-05-14",
+        "gravity": "1"
+    },
+    {
+        "pl_name": "Kepler-406 c",
+        "pl_rade": "0.850",
+        "pl_bmasse": "2.71000",
+        "pl_disc": "2014",
+        "rowupdate": "2014-05-14",
+        "gravity": "3.75"
+    },
+    {
         "pl_name": "Kepler-100 d",
         "pl_rade": "1.610",
         "pl_bmasse": "3.00000",
@@ -344,12 +192,12 @@
         "gravity": "1.16"
     },
     {
-        "pl_name": "Kepler-100 b",
-        "pl_rade": "1.320",
-        "pl_bmasse": "7.34000",
+        "pl_name": "Kepler-408 b",
+        "pl_rade": "0.820",
+        "pl_bmasse": "0.48000",
         "pl_disc": "2014",
         "rowupdate": "2014-05-14",
-        "gravity": "4.21"
+        "gravity": "1"
     },
     {
         "pl_name": "Kepler-102 b",
@@ -360,28 +208,12 @@
         "gravity": "1.86"
     },
     {
-        "pl_name": "Kepler-102 c",
-        "pl_rade": "0.580",
-        "pl_bmasse": "3.00000",
+        "pl_name": "Kepler-106 b",
+        "pl_rade": "0.820",
+        "pl_bmasse": "0.15000",
         "pl_disc": "2014",
         "rowupdate": "2014-05-14",
-        "gravity": "8.92"
-    },
-    {
-        "pl_name": "Kepler-415 b",
-        "pl_rade": "1.210",
-        "pl_bmasse": "119.90000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-28",
-        "gravity": "81.93"
-    },
-    {
-        "pl_name": "Kepler-414 b",
-        "pl_rade": "1.710",
-        "pl_bmasse": "3.50000",
-        "pl_disc": "2014",
-        "rowupdate": "2014-05-28",
-        "gravity": "1.20"
+        "gravity": "1"
     },
     {
         "pl_name": "Kepler-338 e",
@@ -392,12 +224,12 @@
         "gravity": "3.49"
     },
     {
-        "pl_name": "Kepler-122 f",
-        "pl_rade": "1.750",
-        "pl_bmasse": "36.00000",
+        "pl_name": "Kepler-414 b",
+        "pl_rade": "1.710",
+        "pl_bmasse": "3.50000",
         "pl_disc": "2014",
         "rowupdate": "2014-05-28",
-        "gravity": "11.76"
+        "gravity": "1.20"
     },
     {
         "pl_name": "Kepler-101 c",
@@ -446,22 +278,6 @@
         "pl_disc": "2015",
         "rowupdate": "2015-10-15",
         "gravity": "1"
-    },
-    {
-        "pl_name": "K2-3 d",
-        "pl_rade": "1.530",
-        "pl_bmasse": "11.10000",
-        "pl_disc": "2015",
-        "rowupdate": "2015-10-15",
-        "gravity": "4.74"
-    },
-    {
-        "pl_name": "WASP-47 e",
-        "pl_rade": "1.829",
-        "pl_bmasse": "22.00000",
-        "pl_disc": "2015",
-        "rowupdate": "2015-10-15",
-        "gravity": "6.58"
     },
     {
         "pl_name": "GJ 1132 b",
