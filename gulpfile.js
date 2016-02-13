@@ -11,7 +11,7 @@ var request = require('request');
 
 var BROWSER_SYNC_RELOAD_DELAY = 500;
 
-gulp.task('default', ['nodemon'], function () {});
+gulp.task('default', ['browser-sync'], function () {});
 
 gulp.task('nodemon', function (cb) {
 	var called = false;
@@ -28,11 +28,11 @@ gulp.task('nodemon', function (cb) {
 		})
 		.on('restart', function onRestart() {
 			// reload connected browsers after a slight delay
-			//setTimeout(function reload() {
-			//	browserSync.reload({
-			//		stream: false
-			//	});
-			//}, BROWSER_SYNC_RELOAD_DELAY);
+			setTimeout(function reload() {
+				browserSync.reload({
+					stream: false
+				});
+			}, BROWSER_SYNC_RELOAD_DELAY);
 		});
 });
 
