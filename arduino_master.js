@@ -152,11 +152,11 @@ board.on("ready", function() {
         })
     }
 
-    this.stepperStatus = function(){
+    this.steppersRunning = function(){
         // returns true until all steppers return false for isRunning
-        var completeHalt = true;
+        var completeHalt = false;
         board.stepperArray.forEach(function(ele,index){
-            console.log(ele.id+" = "+ele.isRunning);
+            //console.log(ele.id+" = "+ele.isRunning);
             completeHalt = ele.isRunning;
         });
         return completeHalt;
@@ -181,7 +181,7 @@ board.on("ready", function() {
             log: stepperState,
             runstepper: runstepper,
             startsteppers: this.startsteppers,
-            stepperstatus: this.stepperStatus
+            steppersrunning: this.steppersRunning
         }
         this.repl.inject(attribs);
         console.log('Arduino connected\n steppers `one` `two ` and `three` available\n ' +
