@@ -12,7 +12,7 @@ var planets = require(__dirname+"/fixtures/earthSized.json"); // old location
 var logger = new (winston.Logger)({
     transports: [
 
-        new (winston.transports.File)({ filename: './logs/server.log' })
+        new (winston.transports.File)({ filename: __dirname+'/logs/server.log' })
     ]
 });
 //winston.add(winston.transports.File, { filename: './logs/server.log' });
