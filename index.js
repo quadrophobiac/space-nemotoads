@@ -4,14 +4,14 @@ var restclient = require('restler');
 var fs = require('fs');
 var CSV = require('csv-string');
 var jsoncsv = require('json-2-csv');
+var gravity = require('./lib/surfaceG');
 
 var queries = {
     earthSized: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&where=pl_rade%3C2.0&format=csv',
-    allKOIs: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&select=kepler_name,koi_disposition,koi_vet_stat,koi_datalink_dvs,koi_vet_date&format=csv',
     allExoplanets: 'http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_rade,pl_bmasse,pl_disc,rowupdate&format=csv'
 }
 
-var queriesArr = ['earthSized'];
+var queriesArr = ['earthSized','allExoplanets'];
 
 var headers;
 
@@ -41,6 +41,10 @@ var CSVtoObject = function(string){
 
     arrArr.forEach(function(ele,index,context){
 
+    var g = calcGravity(ele["1"],ele["2"]);
+    if(g === false ){
+        //console.log(ele);
+    } else {
         var i0 = headers["0"].toString();
         var i1 = headers["1"].toString();
         var i2 = headers["2"].toString();
@@ -52,10 +56,10 @@ var CSVtoObject = function(string){
         variety[i2] = ele["2"];
         variety[i3] = ele["3"];
         variety[i4] = ele["4"];
-
+        variety["gravity"] = g;
         toCSV.push(variety);
+    }
     });
-
     return toCSV;
 }
 
@@ -123,7 +127,6 @@ var filemgmt = function(query, apiData,tmpJSONPath,csvPath,jsonPath){
         if (c.pl_disc < d.pl_disc) {
             return -1;
         }
-
         // a must be equal to b
         return 0;
     });
@@ -143,33 +146,64 @@ var filemgmt = function(query, apiData,tmpJSONPath,csvPath,jsonPath){
         });
     }
 }
-var saveCSV = function(query, callback){
+var saveCSV = function(query, callback) {
 
     // query is derived from queries object, writefile designed to control whether files are written to disk
-    var jsonPath = __dirname+"/fixtures/"+query+".json";
-    var csvPath = __dirname+"/fixtures/"+query+".csv";
-    var tmpCSVPath = __dirname+"/tmp/"+query+".csv";
-    var tmpJSONPath = __dirname+"/tmp/"+query+".json";
+    var jsonPath = __dirname + "/fixtures/" + query + ".json";
+    var csvPath = __dirname + "/fixtures/" + query + ".csv";
+    var tmpCSVPath = __dirname + "/tmp/" + query + ".csv";
+    var tmpJSONPath = __dirname + "/tmp/" + query + ".json";
 
-
-    restclient.get(queries[query])
-        .on('success', function(result, response){
-            console.log("saving "+query+" API csv to "+tmpCSVPath);
-            fs.writeFileSync(tmpCSVPath, result, 'utf8'); // store CSV from which JSON objs derived
-            filemgmt(query, result,tmpJSONPath, csvPath,jsonPath);
-            //callback(query, result,tmpJSONPath, csvPath,jsonPath);
-        })
-        .on('complete', function(result, response){
-            console.log("completed call");
-            return true;
-        })
-        .on('error', function(err,response){
-            console.log("error");
-            console.log(err);
+    if (query === "allExoplanets") {
+        console.log("storying all EXO");
+        restclient.get(queries[query])
+            .on('success', function (result, response) {
+                console.log("saving " + query + " API csv to " + tmpCSVPath);
+                fs.writeFileSync(tmpCSVPath, result, 'utf8'); // store CSV from which JSON objs derived
+                var Converter = require("csvtojson").Converter;
+                var converter = new Converter({});
+                require("fs").createReadStream(__dirname + "/tmp/" + query + ".csv").pipe(converter);
+                converter.on("end_parsed", function (jsonArray) {
+                    fs.writeFileSync(tmpJSONPath, JSON.stringify(jsonArray,null,4), 'utf8');
+                    fs.writeFileSync(jsonPath, JSON.stringify(jsonArray,null,4), 'utf8');
+                });
         });
+    } else {
+        console.log("storying earth like");
+        restclient.get(queries[query])
+            .on('success', function (result, response) {
+                console.log("saving " + query + " API csv to " + tmpCSVPath);
+                fs.writeFileSync(tmpCSVPath, result, 'utf8'); // store CSV from which JSON objs derived
+                filemgmt(query, result, tmpJSONPath, csvPath, jsonPath);
+                //callback(query, result,tmpJSONPath, csvPath,jsonPath);
+            })
+            .on('complete', function (result, response) {
+                console.log("completed call");
+                return true;
+            })
+            .on('error', function (err, response) {
+                console.log("error");
+                console.log(err);
+            });
+    }
+}
+
+var calcGravity = function(radius,mass) {
+    var planetMass = parseFloat(mass);
+    if (isNaN(planetMass)) {
+        return false;
+    } else {
+        var g = gravity.surfaceGravity(mass, radius);
+        if(g < 1){
+            return "1";
+        } else{
+            return g;
+        }
+    }
 }
 
 queriesArr.forEach(function(ele){
     saveCSV(ele, filemgmt);
-
 });
+
+
