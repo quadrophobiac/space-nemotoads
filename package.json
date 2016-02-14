@@ -2,7 +2,7 @@
   "name": "space_nemotoads",
   "version": "1.0.0",
   "description": "code for client-server and API access",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "mocha",
     "preinstall": "npm install lib/johnny-five",
