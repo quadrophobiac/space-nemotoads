@@ -1,16 +1,5 @@
-//usage from command line = node arduino_master.js repl
-
-var REPLcheck = process.argv.pop();
-
-if(REPLcheck === "repl"){
-    console.log('command line invocation');
-    var five = require("johnny-five");
-    var board = new five.Board({repl: true});
-} else {
-    console.log('cmd args not passed');
-    var five = require("johnny-five");
-    var board = new five.Board({repl: false}); // passing this arg makes no difference :/
-}
+var five = require("johnny-five");
+var board = new five.Board({repl: false});
 
 board.on("connect", function(event) {
     console.log("connected");
@@ -34,12 +23,8 @@ board.on("fail", function(event) {
 board.on("ready", function() {
     // Create an Led on pin 13
 
-    var led = new five.Led(13);
-    led.off(); // set led off for basic board comms debug enabling
+    this.led = new five.Led(13);
 
-    //Arduino syntax
-    //Accelstepper1 stepper11(1,10,9); // stepper1 ( , StepPin, DirectionPin )
-    //Object.getOwnPropertyNames();
     var stepper1 = new five.Stepper({
 
         type: five.Stepper.TYPE.DRIVER,
@@ -52,8 +37,6 @@ board.on("ready", function() {
         accel: 400,
         decel: 400,
         direction: 1
-        // it is better to pass accel and decel as params to a function as they impact speed otherwise
-        //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
 
     var stepper2 = new five.Stepper({
@@ -67,8 +50,6 @@ board.on("ready", function() {
         accel: 400,
         decel: 400,
         direction: 1
-        // it is better to pass accel and decel as params to a function as they impact speed otherwise
-        //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
 
     var stepper3 = new five.Stepper({
@@ -83,8 +64,6 @@ board.on("ready", function() {
         accel: 400,
         decel: 400,
         direction: 1
-        // it is better to pass accel and decel as params to a function as they impact speed otherwise
-        //eg function stepper.rpm(189).decel(1600).ccw().step(8000, function(){});
     });
 
     this.stepperArray = new Array(stepper1, stepper2, stepper3);
@@ -96,38 +75,6 @@ board.on("ready", function() {
     // passing opts
     // passing RPM and speed will result in no movement
 
-    //EG FUNCTIONS
-    //stepper.step({ steps:16000, direction: 1, accel: 1600, decel: 1600 }, function() { console.log("Done stepping!");});
-
-    var stepperState = function(stepObj){
-        return {
-            hello: "world",
-            rpm: stepObj.rpm(),
-            speed: stepObj.speed(),
-            acceleration: stepObj.accel(),
-            deceleration: stepObj.decel()
-        }
-    }
-
-    var test = function(stepper){
-        stepper.step({ steps:16000, accel: 1600, decel: 1600 }, function() {
-            console.log("Done stepping!");
-            console.log(stepperState(stepper));
-        });
-    }
-
-    var run = function(rpm,step,slowdown){
-        stepper.step( // step is a blocking function, ergo problems for simultaneously running
-            {
-                rpm: rpm,
-                steps:step,
-                accel: slowdown,
-                decel: slowdown
-            }, function() {
-                console.log("Done stepping!"); // prints after the step
-        });
-    }
-
     var runstepper = function(stepper,rpm,step,slowdown){
         console.log("starting stepper "+(stepper.id+1));
         stepper.step( // step is a blocking function, ergo problems for simultaneously running
@@ -137,26 +84,30 @@ board.on("ready", function() {
                 accel: slowdown,
                 decel: slowdown
             }, function() {
-                console.log((stepper.id+1)+" done stepping!"); // prints after the step
+                console.log((stepper.id+1)+" done stepping!"+new Date()); // prints after the step
+                //console.log();
             });
     }
 
-    this.startsteppers = function(rpmValues,step){
+    this.startsteppers = function(rpmValues,stepValues){
         //console.log(this);
+        console.log(stepValues);
 
         board.stepperArray.forEach(function(ele,index){
             var slowdown = toptailSmoothing(rpmValues[index]);
             console.log("starting motor "+ele.id+" with values - rpm: "
-                +rpmValues[index]+", duration of "+step+" steps "+" toptail of "+slowdown);
-            runstepper(ele,rpmValues[index],step,slowdown);
+                +rpmValues[index]+", duration of "+stepValues[index]+" steps "+" toptail of "+slowdown);
+            console.log(index+1);
+            runstepper(ele,rpmValues[index],stepValues[index],slowdown);
         })
+        console.log("starting steppers at "+new Date());
     }
 
-    this.stepperStatus = function(){
+    this.steppersRunning = function(){
         // returns true until all steppers return false for isRunning
-        var completeHalt = true;
+        var completeHalt = false;
         board.stepperArray.forEach(function(ele,index){
-            console.log(ele.id+" = "+ele.isRunning);
+            //console.log(ele.id+" = "+ele.isRunning);
             completeHalt = ele.isRunning;
         });
         return completeHalt;
@@ -167,34 +118,10 @@ board.on("ready", function() {
         //return(rpm/1.29);
         var smooth = rpm-30;
         smooth < 100 ? smooth = 100 : smooth
+        console.log("rpm of "+rpm+" has smooth of "+smooth);
         return smooth;
     }
-
-    if (this.REPL === true) {
-        console.log("repl available");
-        // make the LED accessible from REPL command line
-        var attribs = {
-            led: led,
-            one: stepper1,
-            two: stepper2,
-            three: stepper3,
-            log: stepperState,
-            runstepper: runstepper,
-            startsteppers: this.startsteppers,
-            stepperstatus: this.stepperStatus
-        }
-        this.repl.inject(attribs);
-        console.log('Arduino connected\n steppers `one` `two ` and `three` available\n ' +
-            'use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel \n' +
-            'use startsteppers(rpmJSON,step) to run all three motors at same time. rpmJSON takes an object in following\n' +
-            'format `var rpmJSON = {0: 180, 1: 154, 2: 115.8}`. Copy and paste the preceding var into REPL to test');
-    } else {
-        console.log("no repl support");
-    }
-
 });
-
-
 
 board.on('data', function(freq, led){
 
