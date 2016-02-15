@@ -125,6 +125,9 @@ board.on("ready", function() {
         return smooth;
     }
 
+    var SPINNER_ON = 600000;
+    var SPINNER_REST = SPINNER_ON/5;
+
     var attribs = {
         one: stepper1,
         two: stepper2,
@@ -132,16 +135,15 @@ board.on("ready", function() {
         log: stepperState,
         runstepper: runstepper,
         startsteppers: this.startsteppers,
-        steppersrunning: this.steppersRunning
+        steppersrunning: this.steppersRunning,
+        on: SPINNER_ON,
+        off: SPINNER_REST
     }
     this.repl.inject(attribs);
     console.log('Arduino connected\n steppers `one` `two ` and `three` available\n ' +
         'use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel \n' +
         'use startsteppers(rpmJSON,step) to run all three motors at same time. rpmJSON takes an object in following\n' +
         'format `var rpmJSON = {0: 180, 1: 154, 2: 115.8}`. Copy and paste the preceding var into REPL to test');
-
-    var SPINNER_ON = 600000;
-    var SPINNER_REST = SPINNER_ON/5;
 
     this.loop(SPINNER_ON, function(){
         arduino.led.on();
