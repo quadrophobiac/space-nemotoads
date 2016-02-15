@@ -180,9 +180,102 @@ to exit the REPL typp `CTRL+C` or `CMD+C` twice
 
 ________________________________
 
+### Automation
+
+Initially it was hoped to use gulp as an end to end solution for running this project. However current limitation in
+gulp-nodemon respective to instances of that process being unable to manage two separate server files has rendered this 
+option unsuitable for the time being.
+
+[https://github.com/remy/nodemon/issues/286](it's a known issue that gulp-nodemon currently can't handle two servers)
+
+alternatives for server mgmt were tried
+[https://github.com/leny/gulp-supervisor](this is no longer maintained and it does not respond consistently to current 
+ gulp workflow) supervisor is a gulp version of (https://github.com/petruisfan/node-supervisor)[node supervisor]
+
+the general urge for non gulp watch processes is evidenced (https://www.reddit.com/r/node/comments/2ypa2l/ditch_nodemon_and_use_gulp_to_watch_your_files/)[here]
+
+Another attempted workaround consisted of employing gulp ready server plug ins for gulp. The following listed solutions were 
+not suitable to the task as the manner in which the required the arduino module provided unclear/insufficient access to the servers
+shutdown method. This method was a required feature to ensure that the servo motors always completed their cycle before connections to the arduino were terminated
+ - if connection to the arduino is terminated the motors halt immediately which can be a problem if they were spinning at a 
+ high RPM.
+ 
+* https://www.npmjs.com/package/gulp-live-server
+* https://www.npmjs.com/package/gulp-connect
+* https://www.npmjs.com/package/gulp-express
+
+with more time it would be possible to investigate the manner in which gulp closes servers in each of the above libraries
+and potentially could be combined with express middleware that always gracefully exits such as
+* https://www.npmjs.com/package/amazing-grace
+* https://www.npmjs.com/package/grace
+* https://www.npmjs.com/package/express-graceful-exit
+
+TODO investigate alongside explanations for how express handles sigterm and exit events http://stackoverflow.com/questions/20820884/execute-code-on-nodejs-server-shutdown-with-express  
+
+Other alternatives such as commencing the arduino server with express friendly node process managers were looked into
+ultimately they were decided against because of the inability to specify a wait period when a server restarts
+* node forever currently doesn't support minUpTime as expected = (known issue)[https://github.com/foreverjs/forever/issues/751]
+* (node pm2)[https://www.npmjs.com/package/pm2] doesn't support a feature where servers can be started in non daemon mode. This is an especially
+desirable feature in the arduino server because johnny-five automatically logs relevant information to terminal
+
+above could be remedied by availing of extensive logging (as recommended by the packages) however for purposes of gallery install
+it would be preferable for logs to display to STDOUT in a terminal which could be referenced by invigilators
+
+The artwork is running on the distribution image accompanying (Waveshare Raspberry Pi LCD Display Module 5inch 800*480 TFT Resistive Touch Screen Panel HDMI Interface)[http://www.amazon.com/Waveshare-Raspberry-Resistive-Interface-Rapsberry-pi/dp/B00TIA0PMQ]
+this is a wheezy distro of linux and consensus online seems to be that getting the supplied drivers to work with a bespoke distro 
+can prove to be a complete headache.
+
+the shipped distro boots into a LXDE environment. Therefore to automate this repos code the following steps must be taken
+
+(this)[http://www.raspberrypi-spy.co.uk/2014/05/how-to-autostart-apps-in-rasbian-lxde-desktop/] is a great resource and explains all
+you need to know
+
+from `/home/pi` run `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart`  
+from here you can edit a sequence of commands to execute on launch of LXDE env
+
+the working configuration for this project is as follows:
+
+
+```
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@/usr/local/bin/node /home/pi/programming/space-nemotoads/arduino_server.js
+@/usr/local/bin/node  /home/pi/programming/space-nemotoads/
+@/usr/bin/chromium --kiosk --noerrordialogs http://localhost:5000/
+@lxterminal
+```
+
+the third step in this sequence uses node to boot the package.json preinstall and start scripts
+the chromium process is passed a selection of command prompts from this useful & well maintained (list)[http://peter.sh/experiments/chromium-command-line-switches/]
+
+an alternative (if for some reason node cannot execute the package.json files scripts, 
+which is highly probably given how node determines its current working directory) is the following
+
+```
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@lxterminal
+@/usr/local/bin/node /home/pi/programming/space-nemotoads/arduino_server.js
+@/bin/bash /home/pi/startservers.sh
+@/usr/bin/chromium --kiosk --noerrordialogs
+```
+
+TODO - http://stackoverflow.com/questions/8553957/how-to-release-localhost-from-error-listen-eaddrinuse I predict this would
+be essential error checking for purposes of gallery
+________________________________
+
 ###Debugging
 
+#### Node
+
 Node can be a pain in the ass if you make one wrong step. Only install with -g if all else fails
+
+some files HAVE to be installed globally, and to track them use `npm list -g -p -depth=1`
+
+What is of utmost preference is to install node without sudo dependency. The following three links detail ways of doing so
+* https://gist.github.com/maxogden/4322201
+* https://gist.github.com/isaacs/579814
+* https://github.com/npm/npm/wiki/Troubleshooting#no-compatible-version-found
 
 node-pre-gyp is an even bigger PITA. Cross your fingers that its complaining doesn't derail things
 
