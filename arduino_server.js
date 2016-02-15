@@ -56,6 +56,10 @@ var calibrateStep = function(rpmvalues){
     return stepvals;
 }
 
+app.get('/', function(req,res){
+    res.status(200).send('ok\n');
+});
+
 app.get('/start', function(req,res){
     res.status(200).send('ok\n');
     console.log('start motors');
