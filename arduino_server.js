@@ -124,7 +124,7 @@ var server = app.listen(assignedPort, function(){
     arduino.loop(SPINNER_ON, function(){
         arduino.led.on();
         arduino.wait(SPINNER_REST, function() {
-    //        arduino.led.off();
+            arduino.led.off();
             if(!arduino.steppersRunning()){
                 console.log("starting cycle @");
                 console.log(new Date());
