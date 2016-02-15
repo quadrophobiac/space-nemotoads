@@ -180,6 +180,12 @@ to exit the REPL typp `CTRL+C` or `CMD+C` twice
 
 ________________________________
 
+### Display
+
+TODO - alt table presentation http://stackoverflow.com/questions/6368061/most-common-way-of-writing-a-html-table-with-vertical-headers
+
+________________________________
+
 ### Automation
 
 Initially it was hoped to use gulp as an end to end solution for running this project. However current limitation in
