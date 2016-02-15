@@ -56,21 +56,6 @@ var calibrateStep = function(rpmvalues){
     return stepvals;
 }
 
-var delayCalc = function(stepvalues){
-    var v=0;for(var k in stepvalues) { v+=stepvalues[k] } console.log(v/3)
-}
-
-var rpmVals = {
-    0: 154,
-    1: 154,
-    2: 154
-
-}
-
-var retrieveGravity = function(){
-    // TODO function from lib that screen and arduino share
-}
-
 app.get('/start', function(req,res){
     res.status(200).send('ok\n');
     console.log('start motors');
