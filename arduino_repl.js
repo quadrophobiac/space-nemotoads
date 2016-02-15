@@ -5,6 +5,8 @@ var five = require("johnny-five");
 var board = new five.Board();
 
 board.on("ready", function() {
+    this.led = new five.Led(13);
+
     var stepper1 = new five.Stepper({
 
         type: five.Stepper.TYPE.DRIVER,
@@ -137,5 +139,20 @@ board.on("ready", function() {
         'use runstepper($name,rpm,steps,speedupdown) to calibrate per stepper values rpm; steps ; accel & decel \n' +
         'use startsteppers(rpmJSON,step) to run all three motors at same time. rpmJSON takes an object in following\n' +
         'format `var rpmJSON = {0: 180, 1: 154, 2: 115.8}`. Copy and paste the preceding var into REPL to test');
+
+    var SPINNER_ON = 600000;
+    var SPINNER_REST = SPINNER_ON/5;
+
+    this.loop(SPINNER_ON, function(){
+        arduino.led.on();
+        arduino.wait(SPINNER_REST, function() {
+            //        arduino.led.off();
+            if(!arduino.steppersRunning()){
+                console.log("starting cycle @");
+                console.log(new Date());
+                arduino.startsteppers(rpmvals,SPINNER_REST);
+            } // end check if still running
+        }); // end wait
+    }); // end loop
 
 });
