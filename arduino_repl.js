@@ -128,6 +128,12 @@ board.on("ready", function() {
     var SPINNER_ON = 600000;
     var SPINNER_REST = SPINNER_ON/5;
 
+    var rpmvals = {
+        0: 154,
+        1: 154,
+        2: 154
+    }
+
     var attribs = {
         one: stepper1,
         two: stepper2,
@@ -146,13 +152,13 @@ board.on("ready", function() {
         'format `var rpmJSON = {0: 180, 1: 154, 2: 115.8}`. Copy and paste the preceding var into REPL to test');
 
     this.loop(SPINNER_ON, function(){
-        arduino.led.on();
-        arduino.wait(SPINNER_REST, function() {
+        this.led.on();
+        this.wait(SPINNER_REST, function() {
             //        arduino.led.off();
-            if(!arduino.steppersRunning()){
+            if(!this.steppersRunning()){
                 console.log("starting cycle @");
                 console.log(new Date());
-                arduino.startsteppers(rpmvals,SPINNER_REST);
+                this.startsteppers(rpmvals,SPINNER_REST);
             } // end check if still running
         }); // end wait
     }); // end loop
