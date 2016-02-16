@@ -91,7 +91,7 @@ board.on("ready", function() {
 
     this.startsteppers = function(rpmValues,stepValues){
         //console.log(this);
-        console.log(stepValues);
+        //console.log(stepValues);
 
         board.stepperArray.forEach(function(ele,index){
             var slowdown = toptailSmoothing(rpmValues[index]);
@@ -100,7 +100,7 @@ board.on("ready", function() {
             console.log(index+1);
             runstepper(ele,rpmValues[index],stepValues[index],slowdown);
         })
-        console.log("starting steppers at "+new Date());
+        //console.log("starting steppers at "+new Date());
     }
 
     this.steppersRunning = function(){
@@ -118,7 +118,7 @@ board.on("ready", function() {
         //return(rpm/1.29);
         var smooth = rpm-30;
         smooth < 100 ? smooth = 100 : smooth
-        console.log("rpm of "+rpm+" has smooth of "+smooth);
+        //console.log("rpm of "+rpm+" has smooth of "+smooth);
         return smooth;
     }
 });
