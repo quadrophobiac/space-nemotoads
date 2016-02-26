@@ -69,7 +69,7 @@ sudo update-alternatives --config g++
 
 ### Step 2 Build latest version of Node.js
 
-```
+```bash
 Go to Nodejs.org and copy the source code download url. In my example: node-v4.1.0.tar.gz
 #More current version (as of 8 November 2015) URLs:
 https://nodejs.org/dist/v4.2.2/node-v4.2.2.tar.gz
@@ -81,14 +81,21 @@ cd node-v4.1.0
 ./configure
 make -j 4 
 # do the above quicker by maxisiming cores on pi
-make install
+# FINAL STEP - install. in an ideal world you wouldn't have to use sudo to install node but the wheezy distro is a PITA  
+we want to avoid using sudo because when you install global packages you have to use `sudo npm i -g $package` rather  
+than `npm -g i $package`. However you might get away with sudo
+make install OR sudo make install
 # the above should not be done as sudo, at all costs
+curl -L https://www.npmjs.com/install.sh | sh
 ```
 
 ### Step 2.5 non sudo node
 workarounds below - 
-https://gist.github.com/isaacs/579814
-https://github.com/npm/npm/wiki/Troubleshooting#no-compatible-version-found
+https://gist.github.com/isaacs/579814  
+https://github.com/npm/npm/wiki/Troubleshooting#no-compatible-version-found  
+http://ask.xmodulo.com/install-node-js-linux.html  
+http://unix.stackexchange.com/questions/207591/how-to-install-latest-nodejs-on-debian-jessie  
+https://github.com/glenpike/npm-g_nosudo  
 ```
 ```
 
