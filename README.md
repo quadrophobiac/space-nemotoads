@@ -25,7 +25,7 @@ thorough instructions via http://andyfelong.com/2015/11/node-js-v4-1-0-on-raspbe
 
 ### Step - 1 GCC 4.8 on Raspberry Pi Wheezy
 
-```
+```bash
 sudo nano /etc/apt/sources.list
 #Change content to
 deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
@@ -100,8 +100,8 @@ https://github.com/glenpike/npm-g_nosudo
 ```
 
 ### Step 3 Upgrade npm
-```
-sanity check versions
+```bash
+# sanity check versions
 node -v
 should reply v4.1.0 (or whatever version you compiled)
 npm -v
@@ -110,7 +110,7 @@ npm install -g npm
 ```
 
 ### Step 4 global node installs
-```
+```bash
 npm install -g gulp
 npm install -g nodemon
 npm install -g browserify
@@ -124,7 +124,7 @@ Arduino Uno board with Firmata(prebundled) and/or [ConfigurableFirmata](https://
 node installed
 
 Node - Mac Installation Instructions
-```
+```bash
 xcode-select --install
 # agree as necessary
 sudo gcc --version
